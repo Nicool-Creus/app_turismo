@@ -15,6 +15,7 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class FrmVehiculo extends JFrame {
 
@@ -50,7 +51,7 @@ public class FrmVehiculo extends JFrame {
 	 */
 	public FrmVehiculo() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 515, 519);
+		setBounds(100, 100, 458, 519);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(224, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -164,14 +165,16 @@ public class FrmVehiculo extends JFrame {
 		contentPane.add(txtIdTipo);
 		txtIdTipo.setColumns(10);
 		
-		JButton btnBorrarDatos = new JButton("Borrar datos de la matricula");
+		JButton btnBorrarDatos = new JButton("");
+		btnBorrarDatos.setBackground(new Color(240, 248, 255));
+		btnBorrarDatos.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
 		btnBorrarDatos.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				cr.delete(txtMatricula.getText());
 			}
 		});
-		btnBorrarDatos.setBounds(298, 229, 165, 23);
+		btnBorrarDatos.setBounds(376, 412, 55, 57);
 		contentPane.add(btnBorrarDatos);
 	}
 

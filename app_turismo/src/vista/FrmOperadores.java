@@ -15,6 +15,7 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class FrmOperadores extends JFrame {
 
@@ -52,7 +53,7 @@ public class FrmOperadores extends JFrame {
 	 */
 	public FrmOperadores() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 477, 709);
+		setBounds(100, 100, 446, 709);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(224, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -177,9 +178,9 @@ public class FrmOperadores extends JFrame {
 		btnBorrar.setBounds(239, 616, 89, 23);
 		contentPane.add(btnBorrar);
 		
-		JLabel Lid = new JLabel("Id");
+		JLabel Lid = new JLabel("Id del operador");
 		Lid.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		Lid.setBounds(47, 80, 46, 14);
+		Lid.setBounds(47, 80, 98, 17);
 		contentPane.add(Lid);
 		
 		txtId = new JTextField();
@@ -187,14 +188,15 @@ public class FrmOperadores extends JFrame {
 		contentPane.add(txtId);
 		txtId.setColumns(10);
 		
-		JButton btnBorrarDatos = new JButton("Borrar datos del id");
+		JButton btnBorrarDatos = new JButton("");
+		btnBorrarDatos.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
 		btnBorrarDatos.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				cr.delete(Integer.parseInt(txtId.getText()));
 			}
 		});
-		btnBorrarDatos.setBounds(318, 284, 121, 23);
+		btnBorrarDatos.setBounds(352, 586, 55, 57);
 		contentPane.add(btnBorrarDatos);
 	}
 

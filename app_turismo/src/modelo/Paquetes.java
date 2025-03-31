@@ -201,7 +201,7 @@ public class Paquetes {
 		Connection dbConnection = null;
 		PreparedStatement pst = null;
 		
-		String script = "DELETE FROM tblpaquetes WHERE id = ?";
+		String script = "DELETE FROM tblpaquetes WHERE codigo = ?";
 		
 		try {
 			dbConnection = conector.conectarBD();

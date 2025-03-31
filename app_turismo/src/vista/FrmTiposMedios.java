@@ -15,6 +15,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Font;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class FrmTiposMedios extends JFrame {
 
@@ -46,7 +47,7 @@ public class FrmTiposMedios extends JFrame {
 	 */
 	public FrmTiposMedios() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 513, 321);
+		setBounds(100, 100, 429, 321);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(224, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -89,7 +90,7 @@ public class FrmTiposMedios extends JFrame {
 			}
 		});
 		btnBorrar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		btnBorrar.setBounds(255, 238, 89, 23);
+		btnBorrar.setBounds(225, 239, 89, 23);
 		contentPane.add(btnBorrar);
 		
 		JButton btnRegistrar = new JButton("Registrar");
@@ -114,14 +115,16 @@ public class FrmTiposMedios extends JFrame {
 		contentPane.add(txtTipoMedio);
 		txtTipoMedio.setColumns(10);
 		
-		JButton btnBorrarDatos = new JButton("Borrar datos del id");
+		JButton btnBorrarDatos = new JButton("");
+		btnBorrarDatos.setBackground(new Color(240, 248, 255));
+		btnBorrarDatos.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
 		btnBorrarDatos.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				cr.delete(Integer.parseInt(txtTipoMedio.getText()));
 			}
 		});
-		btnBorrarDatos.setBounds(302, 124, 122, 23);
+		btnBorrarDatos.setBounds(334, 205, 55, 57);
 		contentPane.add(btnBorrarDatos);
 	}
 

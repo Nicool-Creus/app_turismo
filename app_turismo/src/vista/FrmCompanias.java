@@ -15,6 +15,7 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class FrmCompanias extends JFrame {
 
@@ -162,14 +163,15 @@ public class FrmCompanias extends JFrame {
 		contentPane.add(txtIdCompania);
 		txtIdCompania.setColumns(10);
 		
-		JButton btnBorrarDatos = new JButton("Borrar datos del id");
+		JButton btnBorrarDatos = new JButton("");
+		btnBorrarDatos.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
 		btnBorrarDatos.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				cr.delete(Integer.parseInt(txtIdCompania.getText()));
 			}
 		});
-		btnBorrarDatos.setBounds(300, 274, 124, 23);
+		btnBorrarDatos.setBounds(355, 425, 55, 57);
 		contentPane.add(btnBorrarDatos);
 	}
 

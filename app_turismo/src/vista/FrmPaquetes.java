@@ -15,6 +15,7 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class FrmPaquetes extends JFrame {
 
@@ -186,7 +187,7 @@ public class FrmPaquetes extends JFrame {
 			}
 		});
 		btnBorrar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		btnBorrar.setBounds(314, 566, 89, 23);
+		btnBorrar.setBounds(298, 566, 89, 23);
 		contentPane.add(btnBorrar);
 		
 		JLabel Lmatricula = new JLabel("Matrícula");
@@ -249,14 +250,16 @@ public class FrmPaquetes extends JFrame {
 		contentPane.add(txtCodigo);
 		txtCodigo.setColumns(10);
 		
-		JButton btnBorrarDatos = new JButton("Borrar datos del código");
+		JButton btnBorrarDatos = new JButton("");
+		btnBorrarDatos.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
+		btnBorrarDatos.setBackground(new Color(240, 248, 255));
 		btnBorrarDatos.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				cr.delete(Integer.parseInt(txtCodigo.getText()));
 			}
 		});
-		btnBorrarDatos.setBounds(321, 443, 149, 23);
+		btnBorrarDatos.setBounds(420, 538, 55, 57);
 		contentPane.add(btnBorrarDatos);
 	}
 }

@@ -15,6 +15,7 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class FrmTiposTransporte extends JFrame {
 
@@ -45,8 +46,9 @@ public class FrmTiposTransporte extends JFrame {
 	 * Create the frame.
 	 */
 	public FrmTiposTransporte() {
+		setBackground(new Color(240, 248, 255));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 470, 281);
+		setBounds(100, 100, 449, 281);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(224, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -101,7 +103,7 @@ public class FrmTiposTransporte extends JFrame {
 			}
 		});
 		btnBorrar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		btnBorrar.setBounds(268, 208, 89, 23);
+		btnBorrar.setBounds(239, 208, 89, 23);
 		contentPane.add(btnBorrar);
 		
 		JLabel LtipoMedio = new JLabel("Id del tipo de transporte");
@@ -114,14 +116,16 @@ public class FrmTiposTransporte extends JFrame {
 		contentPane.add(txtIdTipo);
 		txtIdTipo.setColumns(10);
 		
-		JButton btnBorrarDatos = new JButton("Borrar datos del id");
+		JButton btnBorrarDatos = new JButton("");
+		btnBorrarDatos.setBackground(new Color(240, 248, 255));
+		btnBorrarDatos.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
 		btnBorrarDatos.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				cr.delete(Integer.parseInt(txtIdTipo.getText()));
 			}
 		});
-		btnBorrarDatos.setBounds(311, 81, 129, 23);
+		btnBorrarDatos.setBounds(350, 174, 55, 57);
 		contentPane.add(btnBorrarDatos);
 	}
 

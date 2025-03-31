@@ -15,6 +15,7 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class FrmAgencias extends JFrame {
 
@@ -50,7 +51,7 @@ public class FrmAgencias extends JFrame {
 	 */
 	public FrmAgencias() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 611);
+		setBounds(100, 100, 450, 588);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(224, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -118,7 +119,7 @@ public class FrmAgencias extends JFrame {
 			}
 		});
 		btnRegistrar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		btnRegistrar.setBounds(92, 496, 89, 23);
+		btnRegistrar.setBounds(81, 496, 89, 23);
 		contentPane.add(btnRegistrar);
 		
 		JButton btnBorrar = new JButton("Borrar");
@@ -136,7 +137,7 @@ public class FrmAgencias extends JFrame {
 			}
 		});
 		btnBorrar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		btnBorrar.setBounds(247, 496, 89, 23);
+		btnBorrar.setBounds(223, 496, 89, 23);
 		contentPane.add(btnBorrar);
 		
 		JLabel Lgestion = new JLabel("Gestión de agencias");
@@ -164,14 +165,15 @@ public class FrmAgencias extends JFrame {
 		contentPane.add(txtIdAgencia);
 		txtIdAgencia.setColumns(10);
 		
-		JButton btnBorrarDatos = new JButton("Borrar datos del id");
+		JButton btnBorrarDatos = new JButton("");
+		btnBorrarDatos.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
 		btnBorrarDatos.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				cr.delete(Integer.parseInt(txtIdAgencia.getText()));
 			}
 		});
-		btnBorrarDatos.setBounds(289, 244, 124, 23);
+		btnBorrarDatos.setBounds(352, 481, 55, 57);
 		contentPane.add(btnBorrarDatos);
 	}
 }
