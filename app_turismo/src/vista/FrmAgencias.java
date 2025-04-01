@@ -122,12 +122,13 @@ public class FrmAgencias extends JFrame {
 		btnRegistrar.setBounds(81, 496, 89, 23);
 		contentPane.add(btnRegistrar);
 		
-		JButton btnBorrar = new JButton("Borrar");
-		btnBorrar.setForeground(new Color(0, 0, 0));
-		btnBorrar.setBackground(new Color(240, 248, 255));
-		btnBorrar.addMouseListener(new MouseAdapter() {
+		JButton btnLimpiar = new JButton("Limpiar");
+		btnLimpiar.setForeground(new Color(0, 0, 0));
+		btnLimpiar.setBackground(new Color(240, 248, 255));
+		btnLimpiar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				txtIdAgencia.setText("");
 				txtNombre.setText("");
 				txtDireccion.setText("");
 				txtCorreo.setText("");
@@ -136,9 +137,9 @@ public class FrmAgencias extends JFrame {
 				txtIdCompania.setText("");
 			}
 		});
-		btnBorrar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		btnBorrar.setBounds(223, 496, 89, 23);
-		contentPane.add(btnBorrar);
+		btnLimpiar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
+		btnLimpiar.setBounds(223, 496, 89, 23);
+		contentPane.add(btnLimpiar);
 		
 		JLabel Lgestion = new JLabel("Gestión de agencias");
 		Lgestion.setFont(new Font("Microsoft JhengHei", Font.BOLD, 16));
@@ -165,15 +166,16 @@ public class FrmAgencias extends JFrame {
 		contentPane.add(txtIdAgencia);
 		txtIdAgencia.setColumns(10);
 		
-		JButton btnBorrarDatos = new JButton("");
-		btnBorrarDatos.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
-		btnBorrarDatos.addMouseListener(new MouseAdapter() {
+		JButton btnBorrar = new JButton("");
+		btnBorrar.setBackground(new Color(240, 248, 255));
+		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
+		btnBorrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				cr.delete(Integer.parseInt(txtIdAgencia.getText()));
 			}
 		});
-		btnBorrarDatos.setBounds(352, 481, 55, 57);
-		contentPane.add(btnBorrarDatos);
+		btnBorrar.setBounds(352, 481, 55, 57);
+		contentPane.add(btnBorrar);
 	}
 }

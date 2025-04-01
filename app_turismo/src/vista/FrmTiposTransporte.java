@@ -93,18 +93,19 @@ public class FrmTiposTransporte extends JFrame {
 		btnRegistrar.setBounds(81, 208, 89, 23);
 		contentPane.add(btnRegistrar);
 		
-		JButton btnBorrar = new JButton("Borrar");
-		btnBorrar.setBackground(new Color(240, 248, 255));
-		btnBorrar.addMouseListener(new MouseAdapter() {
+		JButton btnLimpiar = new JButton("Limpiar");
+		btnLimpiar.setBackground(new Color(240, 248, 255));
+		btnLimpiar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				txtIdTipo.setText("");
 				txtNombre.setText("");
 				txtObservaciones.setText("");
 			}
 		});
-		btnBorrar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		btnBorrar.setBounds(239, 208, 89, 23);
-		contentPane.add(btnBorrar);
+		btnLimpiar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
+		btnLimpiar.setBounds(239, 208, 89, 23);
+		contentPane.add(btnLimpiar);
 		
 		JLabel LtipoMedio = new JLabel("Id del tipo de transporte");
 		LtipoMedio.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
@@ -116,17 +117,17 @@ public class FrmTiposTransporte extends JFrame {
 		contentPane.add(txtIdTipo);
 		txtIdTipo.setColumns(10);
 		
-		JButton btnBorrarDatos = new JButton("");
-		btnBorrarDatos.setBackground(new Color(240, 248, 255));
-		btnBorrarDatos.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
-		btnBorrarDatos.addMouseListener(new MouseAdapter() {
+		JButton btnBorrar = new JButton("");
+		btnBorrar.setBackground(new Color(240, 248, 255));
+		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
+		btnBorrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				cr.delete(Integer.parseInt(txtIdTipo.getText()));
 			}
 		});
-		btnBorrarDatos.setBounds(350, 174, 55, 57);
-		contentPane.add(btnBorrarDatos);
+		btnBorrar.setBounds(350, 174, 55, 57);
+		contentPane.add(btnBorrar);
 	}
 
 }

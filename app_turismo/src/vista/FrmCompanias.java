@@ -136,11 +136,12 @@ public class FrmCompanias extends JFrame {
 		btnRegistrar.setBounds(71, 451, 89, 23);
 		contentPane.add(btnRegistrar);
 		
-		JButton btnBorrar = new JButton("Borrar");
-		btnBorrar.setBackground(new Color(240, 248, 255));
-		btnBorrar.addMouseListener(new MouseAdapter() {
+		JButton btnLimpiar = new JButton("Limpiar");
+		btnLimpiar.setBackground(new Color(240, 248, 255));
+		btnLimpiar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				txtIdCompania.setText("");
 				txtRazonSocial.setText("");
 				txtDireccion.setText("");
 				txtCorreo.setText("");
@@ -149,9 +150,9 @@ public class FrmCompanias extends JFrame {
 				txtWeb.setText("");
 			}
 		});
-		btnBorrar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		btnBorrar.setBounds(245, 451, 89, 23);
-		contentPane.add(btnBorrar);
+		btnLimpiar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
+		btnLimpiar.setBounds(245, 451, 89, 23);
+		contentPane.add(btnLimpiar);
 		
 		JLabel LidCompania = new JLabel("Id de la compañia");
 		LidCompania.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
@@ -163,16 +164,17 @@ public class FrmCompanias extends JFrame {
 		contentPane.add(txtIdCompania);
 		txtIdCompania.setColumns(10);
 		
-		JButton btnBorrarDatos = new JButton("");
-		btnBorrarDatos.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
-		btnBorrarDatos.addMouseListener(new MouseAdapter() {
+		JButton btnBorrar = new JButton("");
+		btnBorrar.setBackground(new Color(240, 248, 255));
+		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
+		btnBorrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				cr.delete(Integer.parseInt(txtIdCompania.getText()));
 			}
 		});
-		btnBorrarDatos.setBounds(355, 425, 55, 57);
-		contentPane.add(btnBorrarDatos);
+		btnBorrar.setBounds(355, 425, 55, 57);
+		contentPane.add(btnBorrar);
 	}
 
 }

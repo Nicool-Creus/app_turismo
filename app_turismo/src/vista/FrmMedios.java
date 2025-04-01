@@ -23,13 +23,13 @@ public class FrmMedios extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtNombre;
 	private JTextField txtObservaciones;
-	private JButton btnBorrar;
+	private JButton btnLimpiar;
 	private JLabel Lgestion;
 	private JLabel LidTipoMedio;
 	private JTextField txtIdTipoMedio;
 	private JLabel LidMedios;
 	private JTextField txtIdMedio;
-	private JButton btnBorrarDatos;
+	private JButton btnBorrar;
 
 	Medios cr = new Medios();
 	/**
@@ -93,19 +93,20 @@ public class FrmMedios extends JFrame {
 		btnRegistrar.setBounds(61, 282, 89, 23);
 		contentPane.add(btnRegistrar);
 		
-		btnBorrar = new JButton("Borrar");
-		btnBorrar.setBackground(new Color(240, 248, 255));
-		btnBorrar.addMouseListener(new MouseAdapter() {
+		btnLimpiar = new JButton("Limpiar");
+		btnLimpiar.setBackground(new Color(240, 248, 255));
+		btnLimpiar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				txtIdMedio.setText("");
 				txtNombre.setText("");
 				txtObservaciones.setText("");
 				txtIdTipoMedio.setText("");
 			}
 		});
-		btnBorrar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		btnBorrar.setBounds(226, 282, 89, 23);
-		contentPane.add(btnBorrar);
+		btnLimpiar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
+		btnLimpiar.setBounds(226, 282, 89, 23);
+		contentPane.add(btnLimpiar);
 		
 		Lgestion = new JLabel("Gestión de medios");
 		Lgestion.setFont(new Font("Microsoft JhengHei", Font.BOLD, 16));
@@ -132,16 +133,17 @@ public class FrmMedios extends JFrame {
 		contentPane.add(txtIdMedio);
 		txtIdMedio.setColumns(10);
 		
-		btnBorrarDatos = new JButton("");
-		btnBorrarDatos.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
-		btnBorrarDatos.addMouseListener(new MouseAdapter() {
+		btnBorrar = new JButton("");
+		btnBorrar.setBackground(new Color(240, 248, 255));
+		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
+		btnBorrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				cr.delete(Integer.parseInt(txtIdMedio.getText()));
 			}
 		});
-		btnBorrarDatos.setBounds(347, 248, 55, 57);
-		contentPane.add(btnBorrarDatos);
+		btnBorrar.setBounds(347, 248, 55, 57);
+		contentPane.add(btnBorrar);
 	}
 
 }

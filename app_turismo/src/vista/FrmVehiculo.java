@@ -61,7 +61,7 @@ public class FrmVehiculo extends JFrame {
 		
 		JLabel Lgestion = new JLabel("Gestión de vehículos");
 		Lgestion.setFont(new Font("Microsoft JhengHei", Font.BOLD, 16));
-		Lgestion.setBounds(122, 11, 179, 20);
+		Lgestion.setBounds(130, 11, 179, 20);
 		contentPane.add(Lgestion);
 		
 		JLabel Lmatricula = new JLabel("Matrícula");
@@ -137,9 +137,9 @@ public class FrmVehiculo extends JFrame {
 		btnRegistrar.setBounds(91, 446, 89, 23);
 		contentPane.add(btnRegistrar);
 		
-		JButton btnBorrar = new JButton("Borrar");
-		btnBorrar.setBackground(new Color(240, 248, 255));
-		btnBorrar.addMouseListener(new MouseAdapter() {
+		JButton btnLimpiar = new JButton("Limpiar");
+		btnLimpiar.setBackground(new Color(240, 248, 255));
+		btnLimpiar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				txtMatricula.setText("");
@@ -151,9 +151,9 @@ public class FrmVehiculo extends JFrame {
 				txtIdTipo.setText("");
 			}
 		});
-		btnBorrar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		btnBorrar.setBounds(262, 446, 89, 23);
-		contentPane.add(btnBorrar);
+		btnLimpiar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
+		btnLimpiar.setBounds(262, 446, 89, 23);
+		contentPane.add(btnLimpiar);
 		
 		JLabel IdTipo = new JLabel("Id del tipo de vehículo");
 		IdTipo.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
@@ -165,17 +165,17 @@ public class FrmVehiculo extends JFrame {
 		contentPane.add(txtIdTipo);
 		txtIdTipo.setColumns(10);
 		
-		JButton btnBorrarDatos = new JButton("");
-		btnBorrarDatos.setBackground(new Color(240, 248, 255));
-		btnBorrarDatos.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
-		btnBorrarDatos.addMouseListener(new MouseAdapter() {
+		JButton btnBorrar = new JButton("");
+		btnBorrar.setBackground(new Color(240, 248, 255));
+		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
+		btnBorrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				cr.delete(txtMatricula.getText());
 			}
 		});
-		btnBorrarDatos.setBounds(376, 412, 55, 57);
-		contentPane.add(btnBorrarDatos);
+		btnBorrar.setBounds(376, 412, 55, 57);
+		contentPane.add(btnBorrar);
 	}
 
 }

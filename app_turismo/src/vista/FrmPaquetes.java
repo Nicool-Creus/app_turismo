@@ -166,11 +166,12 @@ public class FrmPaquetes extends JFrame {
 		btnRegistrar.setBounds(130, 566, 89, 23);
 		contentPane.add(btnRegistrar);
 		
-		JButton btnBorrar = new JButton("Borrar");
-		btnBorrar.setBackground(new Color(240, 248, 255));
-		btnBorrar.addMouseListener(new MouseAdapter() {
+		JButton btnLimpiar = new JButton("Limpiar");
+		btnLimpiar.setBackground(new Color(240, 248, 255));
+		btnLimpiar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				txtCodigo.setText("");
 				txtIdDestino.setText("");
 				txtIdOrigen.setText("");
 				txtFechaVenta.setText("");
@@ -186,9 +187,9 @@ public class FrmPaquetes extends JFrame {
 				txtIdPromotor.setText("");
 			}
 		});
-		btnBorrar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		btnBorrar.setBounds(298, 566, 89, 23);
-		contentPane.add(btnBorrar);
+		btnLimpiar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
+		btnLimpiar.setBounds(298, 566, 89, 23);
+		contentPane.add(btnLimpiar);
 		
 		JLabel Lmatricula = new JLabel("Matrícula");
 		Lmatricula.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
@@ -250,16 +251,16 @@ public class FrmPaquetes extends JFrame {
 		contentPane.add(txtCodigo);
 		txtCodigo.setColumns(10);
 		
-		JButton btnBorrarDatos = new JButton("");
-		btnBorrarDatos.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
-		btnBorrarDatos.setBackground(new Color(240, 248, 255));
-		btnBorrarDatos.addMouseListener(new MouseAdapter() {
+		JButton btnBorrar = new JButton("");
+		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
+		btnBorrar.setBackground(new Color(240, 248, 255));
+		btnBorrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				cr.delete(Integer.parseInt(txtCodigo.getText()));
 			}
 		});
-		btnBorrarDatos.setBounds(420, 538, 55, 57);
-		contentPane.add(btnBorrarDatos);
+		btnBorrar.setBounds(420, 538, 55, 57);
+		contentPane.add(btnBorrar);
 	}
 }

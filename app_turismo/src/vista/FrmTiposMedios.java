@@ -23,7 +23,7 @@ public class FrmTiposMedios extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtNombre;
 	private JTextField txtObservaciones;
-	private JTextField txtTipoMedio;
+	private JTextField txtIdTipoMedio;
 
 	TiposMedios cr = new TiposMedios();
 	/**
@@ -80,25 +80,26 @@ public class FrmTiposMedios extends JFrame {
 		Lgestion.setBounds(103, 22, 240, 20);
 		contentPane.add(Lgestion);
 		
-		JButton btnBorrar = new JButton("Borrar");
-		btnBorrar.setBackground(new Color(240, 248, 255));
-		btnBorrar.addMouseListener(new MouseAdapter() {
+		JButton btnLimpiar = new JButton("Limpiar");
+		btnLimpiar.setBackground(new Color(240, 248, 255));
+		btnLimpiar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				txtIdTipoMedio.setText("");
 				txtNombre.setText("");
 				txtObservaciones.setText("");
 			}
 		});
-		btnBorrar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		btnBorrar.setBounds(225, 239, 89, 23);
-		contentPane.add(btnBorrar);
+		btnLimpiar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
+		btnLimpiar.setBounds(225, 239, 89, 23);
+		contentPane.add(btnLimpiar);
 		
 		JButton btnRegistrar = new JButton("Registrar");
 		btnRegistrar.setBackground(new Color(240, 248, 255));
 		btnRegistrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				cr.create(Integer.parseInt(txtTipoMedio.getText()), txtNombre.getText(), txtObservaciones.getText());
+				cr.create(Integer.parseInt(txtIdTipoMedio.getText()), txtNombre.getText(), txtObservaciones.getText());
 			}
 		});
 		btnRegistrar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
@@ -110,22 +111,22 @@ public class FrmTiposMedios extends JFrame {
 		LidTipoMedio.setBounds(43, 73, 122, 17);
 		contentPane.add(LidTipoMedio);
 		
-		txtTipoMedio = new JTextField();
-		txtTipoMedio.setBounds(181, 70, 86, 20);
-		contentPane.add(txtTipoMedio);
-		txtTipoMedio.setColumns(10);
+		txtIdTipoMedio = new JTextField();
+		txtIdTipoMedio.setBounds(181, 70, 86, 20);
+		contentPane.add(txtIdTipoMedio);
+		txtIdTipoMedio.setColumns(10);
 		
-		JButton btnBorrarDatos = new JButton("");
-		btnBorrarDatos.setBackground(new Color(240, 248, 255));
-		btnBorrarDatos.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
-		btnBorrarDatos.addMouseListener(new MouseAdapter() {
+		JButton btnBorrar = new JButton("");
+		btnBorrar.setBackground(new Color(240, 248, 255));
+		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
+		btnBorrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				cr.delete(Integer.parseInt(txtTipoMedio.getText()));
+				cr.delete(Integer.parseInt(txtIdTipoMedio.getText()));
 			}
 		});
-		btnBorrarDatos.setBounds(334, 205, 55, 57);
-		contentPane.add(btnBorrarDatos);
+		btnBorrar.setBounds(334, 205, 55, 57);
+		contentPane.add(btnBorrar);
 	}
 
 }

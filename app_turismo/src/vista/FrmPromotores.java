@@ -171,11 +171,12 @@ public class FrmPromotores extends JFrame {
 		btnRegistrar.setBounds(79, 610, 89, 23);
 		contentPane.add(btnRegistrar);
 		
-		JButton btnBorrar = new JButton("Borrar");
-		btnBorrar.setBackground(new Color(240, 248, 255));
-		btnBorrar.addMouseListener(new MouseAdapter() {
+		JButton btnLimpiar = new JButton("Limpiar");
+		btnLimpiar.setBackground(new Color(240, 248, 255));
+		btnLimpiar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				txtId.setText("");
 				txtTipoDocumento.setText("");
 				txtDocumento.setText("");
 				txtNombre.setText("");
@@ -187,9 +188,9 @@ public class FrmPromotores extends JFrame {
 				txtTelefono.setText("");
 			}
 		});
-		btnBorrar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		btnBorrar.setBounds(248, 610, 89, 23);
-		contentPane.add(btnBorrar);
+		btnLimpiar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
+		btnLimpiar.setBounds(248, 610, 89, 23);
+		contentPane.add(btnLimpiar);
 		
 		JLabel Lid = new JLabel("Id del promotor");
 		Lid.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
@@ -201,17 +202,17 @@ public class FrmPromotores extends JFrame {
 		contentPane.add(txtId);
 		txtId.setColumns(10);
 		
-		JButton btnBorrarDatos = new JButton("");
-		btnBorrarDatos.setBackground(new Color(240, 248, 255));
-		btnBorrarDatos.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
-		btnBorrarDatos.addMouseListener(new MouseAdapter() {
+		JButton btnBorrar = new JButton("");
+		btnBorrar.setBackground(new Color(240, 248, 255));
+		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
+		btnBorrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				cr.delete(Integer.parseInt(txtId.getText()));
 			}
 		});
-		btnBorrarDatos.setBounds(368, 576, 53, 57);
-		contentPane.add(btnBorrarDatos);
+		btnBorrar.setBounds(368, 576, 53, 57);
+		contentPane.add(btnBorrar);
 	}
 
 }

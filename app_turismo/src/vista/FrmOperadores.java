@@ -68,81 +68,81 @@ public class FrmOperadores extends JFrame {
 		
 		JLabel LtipoDocumento = new JLabel("Tipo de documento");
 		LtipoDocumento.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		LtipoDocumento.setBounds(47, 122, 113, 17);
+		LtipoDocumento.setBounds(47, 130, 113, 17);
 		contentPane.add(LtipoDocumento);
 		
 		JLabel Ldocumento = new JLabel("Documento");
 		Ldocumento.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		Ldocumento.setBounds(47, 181, 86, 17);
+		Ldocumento.setBounds(47, 189, 86, 17);
 		contentPane.add(Ldocumento);
 		
 		JLabel Lnombre = new JLabel("Nombre");
 		Lnombre.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		Lnombre.setBounds(47, 244, 58, 17);
+		Lnombre.setBounds(47, 252, 58, 17);
 		contentPane.add(Lnombre);
 		
 		JLabel Lapellido = new JLabel("Apellido");
 		Lapellido.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		Lapellido.setBounds(47, 307, 68, 17);
+		Lapellido.setBounds(47, 315, 68, 17);
 		contentPane.add(Lapellido);
 		
 		JLabel Ldireccion = new JLabel("Dirección");
 		Ldireccion.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		Ldireccion.setBounds(47, 363, 58, 17);
+		Ldireccion.setBounds(47, 371, 58, 17);
 		contentPane.add(Ldireccion);
 		
 		JLabel Lcorreo = new JLabel("Correo");
 		Lcorreo.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		Lcorreo.setBounds(47, 419, 46, 14);
+		Lcorreo.setBounds(47, 427, 46, 14);
 		contentPane.add(Lcorreo);
 		
 		JLabel Ltelefono = new JLabel("Teléfono");
 		Ltelefono.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		Ltelefono.setBounds(47, 479, 58, 17);
+		Ltelefono.setBounds(47, 487, 58, 17);
 		contentPane.add(Ltelefono);
 		
 		JLabel Lmatricula = new JLabel("Matrícula");
 		Lmatricula.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		Lmatricula.setBounds(47, 543, 58, 14);
+		Lmatricula.setBounds(47, 551, 58, 14);
 		contentPane.add(Lmatricula);
 		
 		txtTipoDocumento = new JTextField();
-		txtTipoDocumento.setBounds(201, 119, 86, 20);
+		txtTipoDocumento.setBounds(201, 127, 86, 20);
 		contentPane.add(txtTipoDocumento);
 		txtTipoDocumento.setColumns(10);
 		
 		txtDocumento = new JTextField();
-		txtDocumento.setBounds(201, 178, 86, 20);
+		txtDocumento.setBounds(201, 186, 86, 20);
 		contentPane.add(txtDocumento);
 		txtDocumento.setColumns(10);
 		
 		txtNombre = new JTextField();
-		txtNombre.setBounds(201, 241, 86, 20);
+		txtNombre.setBounds(201, 249, 86, 20);
 		contentPane.add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		txtApellido = new JTextField();
-		txtApellido.setBounds(201, 304, 86, 20);
+		txtApellido.setBounds(201, 312, 86, 20);
 		contentPane.add(txtApellido);
 		txtApellido.setColumns(10);
 		
 		txtDireccion = new JTextField();
-		txtDireccion.setBounds(201, 360, 86, 20);
+		txtDireccion.setBounds(201, 368, 86, 20);
 		contentPane.add(txtDireccion);
 		txtDireccion.setColumns(10);
 		
 		txtCorreo = new JTextField();
-		txtCorreo.setBounds(201, 416, 86, 20);
+		txtCorreo.setBounds(201, 424, 86, 20);
 		contentPane.add(txtCorreo);
 		txtCorreo.setColumns(10);
 		
 		txtTelefono = new JTextField();
-		txtTelefono.setBounds(201, 476, 86, 20);
+		txtTelefono.setBounds(201, 484, 86, 20);
 		contentPane.add(txtTelefono);
 		txtTelefono.setColumns(10);
 		
 		txtMatricula = new JTextField();
-		txtMatricula.setBounds(201, 540, 86, 20);
+		txtMatricula.setBounds(201, 548, 86, 20);
 		contentPane.add(txtMatricula);
 		txtMatricula.setColumns(10);
 		
@@ -159,11 +159,12 @@ public class FrmOperadores extends JFrame {
 		btnRegistrar.setBounds(86, 616, 89, 23);
 		contentPane.add(btnRegistrar);
 		
-		JButton btnBorrar = new JButton("Borrar");
-		btnBorrar.setBackground(new Color(240, 248, 255));
-		btnBorrar.addMouseListener(new MouseAdapter() {
+		JButton btnLimpiar = new JButton("Limpiar");
+		btnLimpiar.setBackground(new Color(240, 248, 255));
+		btnLimpiar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				txtId.setText("");
 				txtTipoDocumento.setText("");
 				txtDocumento.setText("");
 				txtNombre.setText("");
@@ -174,9 +175,9 @@ public class FrmOperadores extends JFrame {
 				txtMatricula.setText("");
 			}
 		});
-		btnBorrar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		btnBorrar.setBounds(239, 616, 89, 23);
-		contentPane.add(btnBorrar);
+		btnLimpiar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
+		btnLimpiar.setBounds(239, 616, 89, 23);
+		contentPane.add(btnLimpiar);
 		
 		JLabel Lid = new JLabel("Id del operador");
 		Lid.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
@@ -188,16 +189,17 @@ public class FrmOperadores extends JFrame {
 		contentPane.add(txtId);
 		txtId.setColumns(10);
 		
-		JButton btnBorrarDatos = new JButton("");
-		btnBorrarDatos.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
-		btnBorrarDatos.addMouseListener(new MouseAdapter() {
+		JButton btnBorrar = new JButton("");
+		btnBorrar.setBackground(new Color(240, 248, 255));
+		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
+		btnBorrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				cr.delete(Integer.parseInt(txtId.getText()));
 			}
 		});
-		btnBorrarDatos.setBounds(352, 586, 55, 57);
-		contentPane.add(btnBorrarDatos);
+		btnBorrar.setBounds(352, 586, 55, 57);
+		contentPane.add(btnBorrar);
 	}
 
 }
