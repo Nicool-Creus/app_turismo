@@ -55,7 +55,7 @@ public class FrmClientes extends JFrame {
 	 * Create the frame.
 	 */
 	public FrmClientes() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 589, 661);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(224, 255, 255));
@@ -237,6 +237,18 @@ public class FrmClientes extends JFrame {
 		txtId.setBounds(183, 81, 86, 20);
 		contentPane.add(txtId);
 		txtId.setColumns(10);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.readOne(Integer.parseInt(txtId.getText()), txtTipoDocumento, txtDocumento, txtNombre, txtApellido, txtEps, txtAlergias, txtFechaNacimiento,
+						txtCorreo, txtEstadoCivil, txtTelefono, txtDireccion);
+			}
+		});
+		btnConsultar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
+		btnConsultar.setBounds(333, 365, 89, 23);
+		contentPane.add(btnConsultar);
 	}
 
 }

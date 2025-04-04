@@ -46,7 +46,7 @@ public class FrmTiposMedios extends JFrame {
 	 * Create the frame.
 	 */
 	public FrmTiposMedios() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 429, 321);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(224, 255, 255));
@@ -127,6 +127,17 @@ public class FrmTiposMedios extends JFrame {
 		});
 		btnBorrar.setBounds(334, 205, 55, 57);
 		contentPane.add(btnBorrar);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.readOne(Integer.parseInt(txtIdTipoMedio.getText()), txtNombre, txtObservaciones);
+			}
+		});
+		btnConsultar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
+		btnConsultar.setBounds(281, 90, 89, 23);
+		contentPane.add(btnConsultar);
 	}
 
 }

@@ -1,12 +1,14 @@
 package modelo;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import controlador.Conexion;
+import vista.FrmPrincipal;
 
 public class Promotores {
 	
@@ -22,6 +24,8 @@ public class Promotores {
 	public String correoCorp;
 	public String fechaNacimiento;
 	public String telefono;
+	
+	FrmPrincipal principal = new FrmPrincipal();
 
 	public Promotores(int id, int tipoDocumento, int documento, String nombres, String apellidos, String direccion,
 			String correoPersonal, String correoCorp, String fechaNacimiento, String telefono) {
@@ -174,5 +178,59 @@ public class Promotores {
 			System.out.println(e.getMessage());
 		}
 	}
-
+	
+	public void readOne(int id, JTextField tipoDocumento, JTextField documento, JTextField nombres, JTextField apellidos, JTextField direccion, 
+			JTextField correoPersonal, JTextField correoCorp, JTextField fechaNacimiento, JTextField telefono) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "SELECT * FROM tblpromotores WHERE id = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			
+			pst.setInt(1, id);
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				tipoDocumento.setText(rs.getString(2));
+				documento.setText(rs.getString(3));
+				nombres.setText(rs.getString(4));
+				apellidos.setText(rs.getString(5));
+				direccion.setText(rs.getString(6));
+				correoPersonal.setText(rs.getString(7));
+				correoCorp.setText(rs.getString(8));
+				fechaNacimiento.setText(rs.getString(9));
+				telefono.setText(rs.getString(10));
+			}
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void controlAcceso(int user, String pass) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "SELECT * FROM tblpromotores WHERE documento = ? and contrasena = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			
+			pst.setInt(1, user);
+			pst.setString(2, pass);
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				principal.show();
+				JOptionPane.showConfirmDialog(null, "Acceso permitido");
+			}
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 }

@@ -2,9 +2,11 @@ package modelo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import controlador.Conexion;
 
@@ -159,6 +161,36 @@ public class Operadores {
 				JOptionPane.showConfirmDialog(null, "Registro No. "+id+" eliminado");
 			}
 		
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void readOne(int id, JTextField tipoDocumento, JTextField documento, JTextField nombres, JTextField apellidos, JTextField direccion,
+			JTextField correo, JTextField telefono, JTextField matricula) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "SELECT * FROM tbloperadores WHERE id = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			
+			pst.setInt(1, id);
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				tipoDocumento.setText(rs.getString(2));
+				documento.setText(rs.getString(3));
+				nombres.setText(rs.getString(4));
+				apellidos.setText(rs.getString(5));
+				direccion.setText(rs.getString(6));
+				correo.setText(rs.getString(7));
+				telefono.setText(rs.getString(8));
+				matricula.setText(rs.getString(9));
+			}
+			
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}

@@ -53,7 +53,7 @@ public class FrmPromotores extends JFrame {
 	 * Create the frame.
 	 */
 	public FrmPromotores() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 684);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(224, 255, 255));
@@ -213,6 +213,18 @@ public class FrmPromotores extends JFrame {
 		});
 		btnBorrar.setBounds(368, 576, 53, 57);
 		contentPane.add(btnBorrar);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.readOne(Integer.parseInt(txtId.getText()), txtTipoDocumento, txtDocumento, txtNombre, txtApellido, txtDireccion, txtCorreoPersonal,
+						txtCorreoCorp, txtFechaNacimiento, txtTelefono);
+			}
+		});
+		btnConsultar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
+		btnConsultar.setBounds(316, 218, 89, 23);
+		contentPane.add(btnConsultar);
 	}
 
 }

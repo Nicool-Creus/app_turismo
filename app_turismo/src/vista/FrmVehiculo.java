@@ -50,7 +50,7 @@ public class FrmVehiculo extends JFrame {
 	 * Create the frame.
 	 */
 	public FrmVehiculo() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 458, 519);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(224, 255, 255));
@@ -176,6 +176,16 @@ public class FrmVehiculo extends JFrame {
 		});
 		btnBorrar.setBounds(376, 412, 55, 57);
 		contentPane.add(btnBorrar);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.readOne(txtMatricula.getText(), txtMarca, txtPuestos, txtModelo, txtNumeroMotor, txtCategoria, txtIdTipo);
+			}
+		});
+		btnConsultar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
+		btnConsultar.setBounds(310, 180, 89, 23);
+		contentPane.add(btnConsultar);
 	}
-
 }

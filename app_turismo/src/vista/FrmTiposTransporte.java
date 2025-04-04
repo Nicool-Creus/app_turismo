@@ -47,7 +47,7 @@ public class FrmTiposTransporte extends JFrame {
 	 */
 	public FrmTiposTransporte() {
 		setBackground(new Color(240, 248, 255));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 449, 281);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(224, 255, 255));
@@ -128,6 +128,17 @@ public class FrmTiposTransporte extends JFrame {
 		});
 		btnBorrar.setBounds(350, 174, 55, 57);
 		contentPane.add(btnBorrar);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.readOne(Integer.parseInt(txtIdTipo.getText()), txtNombre, txtObservaciones);
+			}
+		});
+		btnConsultar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
+		btnConsultar.setBounds(334, 98, 89, 23);
+		contentPane.add(btnConsultar);
 	}
 
 }

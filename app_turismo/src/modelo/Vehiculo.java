@@ -2,9 +2,11 @@ package modelo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import controlador.Conexion;
 
@@ -137,6 +139,33 @@ public class Vehiculo {
 				JOptionPane.showConfirmDialog(null, "Registro No. "+matricula+" eliminado");
 			}
 		
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void readOne(String matricula, JTextField marca, JTextField puestos, JTextField modelo, JTextField numeroMotor, JTextField categoria, JTextField idTipo) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "SELECT * FROM tblvehiculo WHERE matricula = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			
+			pst.setString(1, matricula);
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				marca.setText(rs.getString(2));
+				puestos.setText(rs.getString(3));
+				modelo.setText(rs.getString(4));
+				numeroMotor.setText(rs.getString(5));
+				categoria.setText(rs.getString(6));
+				idTipo.setText(rs.getString(7));
+			}
+			
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}

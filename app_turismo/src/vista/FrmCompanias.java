@@ -50,7 +50,7 @@ public class FrmCompanias extends JFrame {
 	 * Create the frame.
 	 */
 	public FrmCompanias() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 553);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(224, 255, 255));
@@ -175,6 +175,17 @@ public class FrmCompanias extends JFrame {
 		});
 		btnBorrar.setBounds(355, 425, 55, 57);
 		contentPane.add(btnBorrar);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.readOne(Integer.parseInt(txtIdCompania.getText()), txtRazonSocial, txtDireccion, txtCorreo, txtTelefono, txtFechaCreacion, txtWeb);
+			}
+		});
+		btnConsultar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
+		btnConsultar.setBounds(305, 360, 89, 23);
+		contentPane.add(btnConsultar);
 	}
 
 }

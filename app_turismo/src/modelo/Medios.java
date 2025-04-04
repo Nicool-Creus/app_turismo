@@ -2,9 +2,11 @@ package modelo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import controlador.Conexion;
 
@@ -103,6 +105,30 @@ public class Medios {
 				JOptionPane.showConfirmDialog(null, "Registro No. "+idMedios+" eliminado");
 			}
 		
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void readOne(int idMedios, JTextField nombre, JTextField observaciones, JTextField idTiposMedios) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "SELECT * FROM tblmedios WHERE idMedios = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			
+			pst.setInt(1, idMedios);
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				nombre.setText(rs.getString(2));
+				observaciones.setText(rs.getString(3));
+				idTiposMedios.setText(rs.getString(4));
+			}
+			
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}

@@ -2,9 +2,11 @@ package modelo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import controlador.Conexion;
 
@@ -216,6 +218,42 @@ public class Paquetes {
 				JOptionPane.showConfirmDialog(null, "Registro No. "+codigo+" eliminado");
 			}
 		
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void readOne(int codigo, JTextField idDestino, JTextField idOrigen, JTextField fechaVenta, JTextField horaVenta, JTextField horaSalida, 
+			JTextField fechaEjecucion, JTextField observaciones, JTextField matricula, JTextField precios, JTextField idCliente, JTextField idAgencia, 
+			JTextField idMedios, JTextField idPromotor) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "SELECT * FROM tblpaquetes WHERE codigo = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			
+			pst.setInt(1, codigo);
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				idDestino.setText(rs.getString(2));
+				idOrigen.setText(rs.getString(3));
+				fechaVenta.setText(rs.getString(4));
+				horaVenta.setText(rs.getString(5));
+				horaSalida.setText(rs.getString(6));
+				fechaEjecucion.setText(rs.getString(7));
+				observaciones.setText(rs.getString(8));
+				matricula.setText(rs.getString(9));
+				precios.setText(rs.getString(10));
+				idCliente.setText(rs.getString(11));
+				idAgencia.setText(rs.getString(12));
+				idMedios.setText(rs.getString(13));
+				idPromotor.setText(rs.getString(14));
+			}
+			
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
