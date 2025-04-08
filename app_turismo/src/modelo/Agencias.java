@@ -12,6 +12,7 @@ import controlador.Conexion;
 
 public class Agencias {
 	
+	//Se conecta a la base de datos mediante el método que está dentro de la clase Conexion
 	Conexion conector = new Conexion();
 
 	public int idAgencia;
@@ -94,16 +95,18 @@ public class Agencias {
 		this.idCompania = idCompania;
 	}
 
+	//Insertar datos en la tabla agencias
 	public void create(int idAgencia, String nombre, String direccion, String correo, String telefono, String web, int idCompania) {
 		Connection dbConnection = null;
-		PreparedStatement pst = null;
+		PreparedStatement pst = null; //Preparar la trx
 		
 		String script = "INSERT INTO tblagencias (idAgencia, nombre, direccion, correo, telefono, web, idCompania) values (?, ?, ?, ?, ?, ?, ?)";
 		
 		try {
-			dbConnection = conector.conectarBD();
-			pst = dbConnection.prepareStatement(script);
+			dbConnection = conector.conectarBD(); //Abrir la conexión
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
 			
+			//Parametrizar los campos
 			pst.setInt(1, idAgencia);
 			pst.setString(2, nombre);
 			pst.setString(3, direccion);
@@ -112,6 +115,7 @@ public class Agencias {
 			pst.setString(6, web);
 			pst.setInt(7, idCompania);
 			
+			//Ejecutar la trx
 			pst.executeUpdate();
 			JOptionPane.showConfirmDialog(null, "Registro con exito");
 		
@@ -120,21 +124,25 @@ public class Agencias {
 		}
 	}
 	
+	//Eliminar datos de la tabla agencias
 	public void delete(int idCompania) {
 		Connection dbConnection = null;
-		PreparedStatement pst = null;
+		PreparedStatement pst = null; //Preparar la trx
 		
 		String script = "DELETE FROM tblagencias WHERE idCompania = ?";
 		
 		try {
-			dbConnection = conector.conectarBD();
-			pst = dbConnection.prepareStatement(script);
+			dbConnection = conector.conectarBD(); //Abrir la conexión
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
 	
+			//Parametrizar el campo
 			pst.setInt(1, idCompania);
 			
+			//Confirmar la operación
 			int resp = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro No. "+ idCompania + "?");
 			
 			if (resp == JOptionPane.OK_OPTION){
+				//Ejecutar la trx
 				pst.executeUpdate();
 				JOptionPane.showConfirmDialog(null, "Registro No. "+idCompania+" eliminado");
 			}
@@ -144,18 +152,19 @@ public class Agencias {
 		}
 	}
 	
+	//Consultar todos los registros de la tabla agencias
 	public void readOne(int idAgencia, JTextField nombre, JTextField direccion, JTextField correo, JTextField telefono, JTextField web, JTextField idCompania) {
 		Connection dbConnection = null;
-		PreparedStatement pst = null;
+		PreparedStatement pst = null; //Preparar la trx
 		
 		String script = "SELECT * FROM tblagencias WHERE idAgencia = ?";
 		
 		try {
-			dbConnection = conector.conectarBD();
-			pst = dbConnection.prepareStatement(script);
+			dbConnection = conector.conectarBD(); //Abrir la conexión
+			pst = dbConnection.prepareStatement(script);//Abrir el buffer
 			
 			pst.setInt(1, idAgencia);
-			ResultSet rs = pst.executeQuery();
+			ResultSet rs = pst.executeQuery(); //Almacenamiento temporal
 			
 			while (rs.next()) {
 				nombre.setText(rs.getString(2));
@@ -171,16 +180,18 @@ public class Agencias {
 		}
 	}
 	
+	//Actualizar los datos de la tabla agencias
 	public void update(int idAgencia, String nombre, String direccion, String correo, String telefono, String web, int idCompania) {
 		Connection dbConnection = null;
-		PreparedStatement pst = null;
+		PreparedStatement pst = null; //Preparar la trx
 		
 		String script = "UPDATE tblagencias SET nombre = ?, direccion = ?, correo = ?, telefono = ?, web = ?, idCompania = ? WHERE idAgencia = ?";
 		
 		try {
-			dbConnection = conector.conectarBD();
-			pst = dbConnection.prepareStatement(script);
+			dbConnection = conector.conectarBD(); //Abrir la conexión
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
 			
+			//Parametrizar los campos
 			pst.setString(1, nombre);
 			pst.setString(2, direccion);
 			pst.setString(3, correo);
@@ -189,9 +200,12 @@ public class Agencias {
 			pst.setInt(6, idCompania);
 			pst.setInt(7, idAgencia);
 			
+			//Confirmar la operación
 			int rs = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro " + idAgencia + "?");
 			
 			if (rs == JOptionPane.OK_OPTION){
+				
+			//Ejecutar la trx
 			pst.executeUpdate();
 			JOptionPane.showConfirmDialog(null, "Registro actualizado con exito");
 			} else {

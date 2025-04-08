@@ -12,6 +12,7 @@ import controlador.Conexion;
 
 public class Paquetes {
 	
+	//Se conecta a la base de datos mediante el método que está dentro de la clase Conexion
 	Conexion conector = new Conexion();
 
 	public int codigo;
@@ -165,6 +166,7 @@ public class Paquetes {
 		this.idPromotor = idPromotor;
 	}
 
+	//Insertar datos en la tabla paquetes
 	public void create(int codigo, int idDestino, int idOrigen, String fechaVenta, String horaVenta, String horaSalida, String fechaEjecucion, 
 			String observaciones, String matricula, String precios, int idCliente, int idAgencia, int idMedios, int idPromotor) {
 		Connection dbConnection = null;
@@ -173,9 +175,10 @@ public class Paquetes {
 		String script = "INSERT INTO tblpaquetes (codigo, idDestino, idOrigen, fechaVenta, horaVenta, horaSalida, fechaEjecucion, observaciones, matricula, precios, idCliente, idAgencia, idMedios, idPromotor) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		try {
-			dbConnection = conector.conectarBD();
-			pst = dbConnection.prepareStatement(script);
+			dbConnection = conector.conectarBD(); //Abrir la conexión
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
 			
+			//Parametrizar los campos
 			pst.setInt(1, codigo);
 			pst.setInt(2, idDestino);
 			pst.setInt(3, idOrigen);
@@ -191,6 +194,7 @@ public class Paquetes {
 			pst.setInt(13, idMedios);
 			pst.setInt(14, idPromotor);
 			
+			//Ejecutar la trx
 			pst.executeUpdate();
 			JOptionPane.showConfirmDialog(null, "Registro con exito");
 		
@@ -199,21 +203,26 @@ public class Paquetes {
 		}
 	}
 	
+	//Eliminar datos de la tabla paquetes
 	public void delete(int codigo) {
 		Connection dbConnection = null;
-		PreparedStatement pst = null;
+		PreparedStatement pst = null; //Preparar la trx
 		
 		String script = "DELETE FROM tblpaquetes WHERE codigo = ?";
 		
 		try {
-			dbConnection = conector.conectarBD();
-			pst = dbConnection.prepareStatement(script);
+			dbConnection = conector.conectarBD(); //Abrir la conexión
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
 	
+			//Parametrizar el campo
 			pst.setInt(1, codigo);
 			
+			//Confirmar la operación
 			int resp = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro No. "+ codigo + "?");
 			
 			if (resp == JOptionPane.OK_OPTION){
+				
+				//Ejecutar la trx
 				pst.executeUpdate();
 				JOptionPane.showConfirmDialog(null, "Registro No. "+codigo+" eliminado");
 			}
@@ -223,20 +232,22 @@ public class Paquetes {
 		}
 	}
 	
+	//Consultar todos los registros de la tabla paquetes
 	public void readOne(int codigo, JTextField idDestino, JTextField idOrigen, JTextField fechaVenta, JTextField horaVenta, JTextField horaSalida, 
 			JTextField fechaEjecucion, JTextField observaciones, JTextField matricula, JTextField precios, JTextField idCliente, JTextField idAgencia, 
 			JTextField idMedios, JTextField idPromotor) {
 		Connection dbConnection = null;
-		PreparedStatement pst = null;
+		PreparedStatement pst = null; //Preparar la trx
 		
 		String script = "SELECT * FROM tblpaquetes WHERE codigo = ?";
 		
 		try {
-			dbConnection = conector.conectarBD();
-			pst = dbConnection.prepareStatement(script);
+			dbConnection = conector.conectarBD(); //Abrir la conexión
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
 			
+			//Parametrizar el campo
 			pst.setInt(1, codigo);
-			ResultSet rs = pst.executeQuery();
+			ResultSet rs = pst.executeQuery(); //Almacenamiento temporal
 			
 			while (rs.next()) {
 				idDestino.setText(rs.getString(2));
@@ -259,17 +270,19 @@ public class Paquetes {
 		}
 	}
 	
+	//Actualizar los datos de la tabla paquetes
 	public void update(int codigo, int idDestino, int idOrigen, String fechaVenta, String horaVenta, String horaSalida, String fechaEjecucion, 
 			String observaciones, String matricula, String precios, int idCliente, int idAgencia, int idMedios, int idPromotor) {
 		Connection dbConnection = null;
-		PreparedStatement pst = null;
+		PreparedStatement pst = null; //Preparar la trx
 		
 		String script = "UPDATE tblpaquetes SET idDestino = ?, idOrigen = ?, fechaVenta = ?, horaVenta = ?, horaSalida = ?, fechaEjecucion = ?, observaciones = ?, matricula = ?, precios = ?, idCliente = ?, idAgencia = ?, idMedios = ?, idPromotor = ? WHERE codigo = ?";
 		
 		try {
-			dbConnection = conector.conectarBD();
-			pst = dbConnection.prepareStatement(script);
+			dbConnection = conector.conectarBD(); //Abrir la conexión
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
 			
+			//Parametrizar los campos
 			pst.setInt(1, idDestino);
 			pst.setInt(2, idOrigen);
 			pst.setString(3, fechaVenta);
@@ -285,9 +298,12 @@ public class Paquetes {
 			pst.setInt(13, idPromotor);
 			pst.setInt(14, codigo);
 			
+			//Confirmar la operación
 			int rs = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro " + codigo + "?");
 			
 			if (rs == JOptionPane.OK_OPTION){
+				
+			//Ejecutar la trx
 			pst.executeUpdate();
 			JOptionPane.showConfirmDialog(null, "Registro actualizado con exito");
 			} else {

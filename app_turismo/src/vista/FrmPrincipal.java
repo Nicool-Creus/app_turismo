@@ -40,7 +40,7 @@ public class FrmPrincipal extends JFrame {
 	 */
 	public FrmPrincipal() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 576, 410);
+		setBounds(100, 100, 530, 410);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(224, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -70,37 +70,37 @@ public class FrmPrincipal extends JFrame {
 		
 		JLabel Lcliente = new JLabel("Cliente");
 		Lcliente.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		Lcliente.setBounds(398, 60, 46, 14);
+		Lcliente.setBounds(407, 60, 46, 14);
 		contentPane.add(Lcliente);
 		
 		JLabel Lpaquete = new JLabel("Paquete");
 		Lpaquete.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		Lpaquete.setBounds(41, 154, 62, 14);
+		Lpaquete.setBounds(41, 170, 62, 14);
 		contentPane.add(Lpaquete);
 		
 		JLabel LtipoMedio = new JLabel("Tipo de medio");
 		LtipoMedio.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		LtipoMedio.setBounds(161, 154, 89, 14);
+		LtipoMedio.setBounds(154, 170, 89, 14);
 		contentPane.add(LtipoMedio);
 		
 		JLabel Lmedio = new JLabel("Medio");
 		Lmedio.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		Lmedio.setBounds(282, 154, 46, 14);
+		Lmedio.setBounds(292, 170, 62, 14);
 		contentPane.add(Lmedio);
 		
 		JLabel Loperador = new JLabel("Operador");
 		Loperador.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		Loperador.setBounds(398, 154, 70, 14);
+		Loperador.setBounds(398, 170, 70, 14);
 		contentPane.add(Loperador);
 		
 		JLabel LtipoTransporte = new JLabel("Tipo de transporte");
 		LtipoTransporte.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		LtipoTransporte.setBounds(171, 250, 112, 14);
+		LtipoTransporte.setBounds(144, 278, 112, 14);
 		contentPane.add(LtipoTransporte);
 		
 		JLabel Lvehiculo = new JLabel("Vehículo");
 		Lvehiculo.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		Lvehiculo.setBounds(314, 250, 57, 14);
+		Lvehiculo.setBounds(287, 278, 57, 14);
 		contentPane.add(Lvehiculo);
 		
 		JButton btnCompania = new JButton("");
@@ -129,7 +129,8 @@ public class FrmPrincipal extends JFrame {
 		btnAgencia.setBounds(161, 85, 55, 57);
 		contentPane.add(btnAgencia);
 		
-		JButton btnPromotor = new JButton("Promotor");
+		JButton btnPromotor = new JButton("");
+		btnPromotor.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO PROMOTOR 1.png"));
 		btnPromotor.setBackground(new Color(240, 248, 255));
 		btnPromotor.addMouseListener(new MouseAdapter() {
 			@Override
@@ -138,10 +139,11 @@ public class FrmPrincipal extends JFrame {
 				view.show();
 			}
 		});
-		btnPromotor.setBounds(271, 107, 89, 23);
+		btnPromotor.setBounds(282, 85, 55, 57);
 		contentPane.add(btnPromotor);
 		
-		JButton btnCliente = new JButton("Cliente");
+		JButton btnCliente = new JButton("");
+		btnCliente.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO CLIENTE.png"));
 		btnCliente.setBackground(new Color(240, 248, 255));
 		btnCliente.addMouseListener(new MouseAdapter() {
 			@Override
@@ -150,10 +152,11 @@ public class FrmPrincipal extends JFrame {
 				view.show();
 			}
 		});
-		btnCliente.setBounds(398, 107, 89, 23);
+		btnCliente.setBounds(398, 85, 55, 57);
 		contentPane.add(btnCliente);
 		
-		JButton btnPaquete = new JButton("Paquete");
+		JButton btnPaquete = new JButton("");
+		btnPaquete.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO PAQUETE.png"));
 		btnPaquete.setBackground(new Color(240, 248, 255));
 		btnPaquete.addMouseListener(new MouseAdapter() {
 			@Override
@@ -162,10 +165,11 @@ public class FrmPrincipal extends JFrame {
 				view.show();
 			}
 		});
-		btnPaquete.setBounds(26, 209, 89, 23);
+		btnPaquete.setBounds(41, 195, 55, 57);
 		contentPane.add(btnPaquete);
 		
-		JButton btnTipoMedio = new JButton("TipoMedio");
+		JButton btnTipoMedio = new JButton("");
+		btnTipoMedio.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO TIPO DE MEDIO.png"));
 		btnTipoMedio.setBackground(new Color(240, 248, 255));
 		btnTipoMedio.addMouseListener(new MouseAdapter() {
 			@Override
@@ -174,10 +178,11 @@ public class FrmPrincipal extends JFrame {
 				view.show();
 			}
 		});
-		btnTipoMedio.setBounds(161, 209, 89, 23);
+		btnTipoMedio.setBounds(171, 195, 55, 57);
 		contentPane.add(btnTipoMedio);
 		
-		JButton btnMedio = new JButton("Medio");
+		JButton btnMedio = new JButton("");
+		btnMedio.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO MEDIO.png"));
 		btnMedio.setBackground(new Color(240, 248, 255));
 		btnMedio.addMouseListener(new MouseAdapter() {
 			@Override
@@ -186,10 +191,11 @@ public class FrmPrincipal extends JFrame {
 				view.show();
 			}
 		});
-		btnMedio.setBounds(282, 198, 89, 23);
+		btnMedio.setBounds(282, 195, 55, 57);
 		contentPane.add(btnMedio);
 		
-		JButton btnOperador = new JButton("Operador");
+		JButton btnOperador = new JButton("");
+		btnOperador.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO OPERADOR.png"));
 		btnOperador.setBackground(new Color(240, 248, 255));
 		btnOperador.addMouseListener(new MouseAdapter() {
 			@Override
@@ -198,10 +204,11 @@ public class FrmPrincipal extends JFrame {
 				view.show();
 			}
 		});
-		btnOperador.setBounds(398, 209, 89, 23);
+		btnOperador.setBounds(398, 195, 55, 57);
 		contentPane.add(btnOperador);
 		
-		JButton btnTipoTransporte = new JButton("Tipo de transporte");
+		JButton btnTipoTransporte = new JButton("");
+		btnTipoTransporte.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO TIPO DE TRANSPORTE.png"));
 		btnTipoTransporte.setBackground(new Color(240, 248, 255));
 		btnTipoTransporte.addMouseListener(new MouseAdapter() {
 			@Override
@@ -210,10 +217,11 @@ public class FrmPrincipal extends JFrame {
 				view.show();
 			}
 		});
-		btnTipoTransporte.setBounds(161, 299, 122, 23);
+		btnTipoTransporte.setBounds(172, 303, 55, 57);
 		contentPane.add(btnTipoTransporte);
 		
-		JButton btnVehiculo = new JButton("Vehículo");
+		JButton btnVehiculo = new JButton("");
+		btnVehiculo.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO VEHÍCULO.png"));
 		btnVehiculo.setBackground(new Color(240, 248, 255));
 		btnVehiculo.addMouseListener(new MouseAdapter() {
 			@Override
@@ -222,7 +230,7 @@ public class FrmPrincipal extends JFrame {
 				view.show();
 			}
 		});
-		btnVehiculo.setBounds(314, 299, 89, 23);
+		btnVehiculo.setBounds(287, 303, 55, 57);
 		contentPane.add(btnVehiculo);
 	}
 }

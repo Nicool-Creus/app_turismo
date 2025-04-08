@@ -246,19 +246,21 @@ public class Promotores {
 		}
 	}
 	
+	//Control e acceso para los promotores
 	public void controlAcceso(int user, String pass) {
 		Connection dbConnection = null;
-		PreparedStatement pst = null;
+		PreparedStatement pst = null; //Preparar la trx
 		
 		String script = "SELECT * FROM tblpromotores WHERE documento = ? and contrasena = ?";
 		
 		try {
-			dbConnection = conector.conectarBD();
-			pst = dbConnection.prepareStatement(script);
+			dbConnection = conector.conectarBD(); //Abrir la conexión
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
 			
+			//Parametrizar los campos
 			pst.setInt(1, user);
 			pst.setString(2, pass);
-			ResultSet rs = pst.executeQuery();
+			ResultSet rs = pst.executeQuery(); //Almacenamiento temporal
 			
 			while (rs.next()) {
 				principal.show();

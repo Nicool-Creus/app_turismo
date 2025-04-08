@@ -12,6 +12,7 @@ import controlador.Conexion;
 
 public class Operadores {
 
+	//Se conecta a la base de datos mediante el método que está dentro de la clase Conexion
 	Conexion conector = new Conexion();
 	
 	public int id;
@@ -114,16 +115,18 @@ public class Operadores {
 		this.matricula = matricula;
 	}
 
+	//Insertar datos en la tabla operadores
 	public void create(int id, int tipoDocumento, int documento, String nombres, String apellidos, String direccion, String correo, String telefono, String matricula) {
 		Connection dbConnection = null;
-		PreparedStatement pst = null;
+		PreparedStatement pst = null; //Preaparar la trx
 		
 		String script = "INSERT INTO tbloperadores (id, tipoDocumento, documento, nombres, apellidos, direccion, correo, telefono, matricula) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		try {
-			dbConnection = conector.conectarBD();
-			pst = dbConnection.prepareStatement(script);
+			dbConnection = conector.conectarBD(); //Abirir la conexión
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
 			
+			//Parametrizar los camos
 			pst.setInt(1, id);
 			pst.setInt(2, tipoDocumento);
 			pst.setInt(3, documento);
@@ -134,6 +137,7 @@ public class Operadores {
 			pst.setString(8, telefono);
 			pst.setString(9, matricula);
 			
+			//Ejecutar la trx
 			pst.executeUpdate();
 			JOptionPane.showConfirmDialog(null, "Registro con exito");
 		
@@ -142,21 +146,26 @@ public class Operadores {
 		}
 	}
 	
+	//Eliminar datos de la tabla operadores
 	public void delete(int id) {
 		Connection dbConnection = null;
-		PreparedStatement pst = null;
+		PreparedStatement pst = null; //Preparar la trx
 		
 		String script = "DELETE FROM tbloperadores WHERE id = ?";
 		
 		try {
-			dbConnection = conector.conectarBD();
-			pst = dbConnection.prepareStatement(script);
+			dbConnection = conector.conectarBD(); //Abrir la conexión
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
 	
+			//Parametrizar el campo
 			pst.setInt(1, id);
 			
+			//Confirmar la operación
 			int resp = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro No. "+ id + "?");
 			
 			if (resp == JOptionPane.OK_OPTION){
+				
+				//Ejecutar la trx
 				pst.executeUpdate();
 				JOptionPane.showConfirmDialog(null, "Registro No. "+id+" eliminado");
 			}
@@ -166,19 +175,21 @@ public class Operadores {
 		}
 	}
 	
+	//Consultar todos los registros de la tabla operadores
 	public void readOne(int id, JTextField tipoDocumento, JTextField documento, JTextField nombres, JTextField apellidos, JTextField direccion,
 			JTextField correo, JTextField telefono, JTextField matricula) {
 		Connection dbConnection = null;
-		PreparedStatement pst = null;
+		PreparedStatement pst = null; //Preaparar la trx
 		
 		String script = "SELECT * FROM tbloperadores WHERE id = ?";
 		
 		try {
-			dbConnection = conector.conectarBD();
-			pst = dbConnection.prepareStatement(script);
+			dbConnection = conector.conectarBD(); //Abrir la conexión
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
 			
+			//Parametrizar el campo
 			pst.setInt(1, id);
-			ResultSet rs = pst.executeQuery();
+			ResultSet rs = pst.executeQuery(); //Almacenamiento temporal
 			
 			while (rs.next()) {
 				tipoDocumento.setText(rs.getString(2));
@@ -196,6 +207,7 @@ public class Operadores {
 		}
 	}
 	
+	//Actualizar los datos de la tabla operadores
 	public void update(int id, int tipoDocumento, int documento, String nombres, String apellidos, String direccion, String correo, String telefono, String matricula) {
 		Connection dbConnection = null;
 		PreparedStatement pst = null;
@@ -204,8 +216,9 @@ public class Operadores {
 		
 		try {
 			dbConnection = conector.conectarBD();
-			pst = dbConnection.prepareStatement(script);
+			pst = dbConnection.prepareStatement(script); //Preparar la trx
 			
+			//Parametrizar los campos
 			pst.setInt(1, tipoDocumento);
 			pst.setInt(2, documento);
 			pst.setString(3, nombres);
@@ -216,9 +229,11 @@ public class Operadores {
 			pst.setString(8, matricula);
 			pst.setInt(9, id);
 			
+			//Confirmar la operación
 			int rs = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro " + id + "?");
 			
 			if (rs == JOptionPane.OK_OPTION){
+			//Ejecutar la trx
 			pst.executeUpdate();
 			JOptionPane.showConfirmDialog(null, "Registro actualizado con exito");
 			} else {
