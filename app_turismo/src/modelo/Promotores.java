@@ -126,7 +126,8 @@ public class Promotores {
 		this.telefono = telefono;
 	}
 
-	public void create(int id, int tipoDocumento, int documento, String nombres, String apellidos, String direccion, String correoPersonal, String correoCorp, String fechaNacimiento, String telefono) {
+	public void create(int id, int tipoDocumento, int documento, String nombres, String apellidos, String direccion, String correoPersonal, String correoCorp,
+			String fechaNacimiento, String telefono) {
 		Connection dbConnection = null;
 		PreparedStatement pst = null;
 		
@@ -205,6 +206,41 @@ public class Promotores {
 				telefono.setText(rs.getString(10));
 			}
 			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void update(int id, int tipoDocumento, int documento, String nombres, String apellidos, String direccion, String correoPersonal, String correoCorp,
+			String fechaNacimiento, String telefono) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "UPDATE tblpromotores SET tipoDocumento = ?, documento = ?, nombres = ?, apellidos = ?, direccion = ?, correoPersonal = ?, correoCorp = ?, fechaNacimiento = ?, telefono = ? WHERE id = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			
+			pst.setInt(1, tipoDocumento);
+			pst.setInt(2, documento);
+			pst.setString(3, nombres);
+			pst.setString(4, apellidos);
+			pst.setString(5, direccion);
+			pst.setString(6, correoPersonal);
+			pst.setString(7, correoCorp);
+			pst.setString(8, fechaNacimiento);
+			pst.setString(9, telefono);
+			pst.setInt(10, id);
+			
+			int rs = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro " + id + "?");
+			
+			if (rs == JOptionPane.OK_OPTION){
+			pst.executeUpdate();
+			JOptionPane.showConfirmDialog(null, "Registro actualizado con exito");
+			} else {
+				JOptionPane.showConfirmDialog(null, "Operación cancelada");
+			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}

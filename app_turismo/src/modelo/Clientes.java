@@ -233,5 +233,42 @@ public class Clientes {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public void update(int id, int tipoDocumento, int documento, String nombres, String apellidos, String eps, String alergias, String fechaNacimiento,
+			String correo, String estadoCivil, String telefono, String direccion) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "UPDATE tblclientes SET tipoDocumento = ?, documento = ?, nombres = ?, apellidos = ?, eps = ?, alergias = ?, fechaNacimiento = ?, correo = ?, estadoCivil = ?, telefono = ?, direccion = ? WHERE id = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			
+			pst.setInt(1, tipoDocumento);
+			pst.setInt(2, documento);
+			pst.setString(3, nombres);
+			pst.setString(4, apellidos);
+			pst.setString(5, eps);
+			pst.setString(6, alergias);
+			pst.setString(7, fechaNacimiento);
+			pst.setString(8, correo);
+			pst.setString(9, estadoCivil);
+			pst.setString(10, telefono);
+			pst.setString(11, direccion);
+			pst.setInt(12, id);
+			
+			int rs = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro " + id + "?");
+			
+			if (rs == JOptionPane.OK_OPTION){
+			pst.executeUpdate();
+			JOptionPane.showConfirmDialog(null, "Registro actualizado con exito");
+			} else {
+				JOptionPane.showConfirmDialog(null, "Operación cancelada");
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 
 }

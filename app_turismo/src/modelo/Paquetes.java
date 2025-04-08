@@ -258,5 +258,44 @@ public class Paquetes {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public void update(int codigo, int idDestino, int idOrigen, String fechaVenta, String horaVenta, String horaSalida, String fechaEjecucion, 
+			String observaciones, String matricula, String precios, int idCliente, int idAgencia, int idMedios, int idPromotor) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "UPDATE tblpaquetes SET idDestino = ?, idOrigen = ?, fechaVenta = ?, horaVenta = ?, horaSalida = ?, fechaEjecucion = ?, observaciones = ?, matricula = ?, precios = ?, idCliente = ?, idAgencia = ?, idMedios = ?, idPromotor = ? WHERE codigo = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			
+			pst.setInt(1, idDestino);
+			pst.setInt(2, idOrigen);
+			pst.setString(3, fechaVenta);
+			pst.setString(4, horaVenta);
+			pst.setString(5, horaSalida);
+			pst.setString(6, fechaEjecucion);
+			pst.setString(7, observaciones);
+			pst.setString(8, matricula);
+			pst.setString(9, precios);
+			pst.setInt(10, idCliente);
+			pst.setInt(11, idAgencia);
+			pst.setInt(12, idMedios);
+			pst.setInt(13, idPromotor);
+			pst.setInt(14, codigo);
+			
+			int rs = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro " + codigo + "?");
+			
+			if (rs == JOptionPane.OK_OPTION){
+			pst.executeUpdate();
+			JOptionPane.showConfirmDialog(null, "Registro actualizado con exito");
+			} else {
+				JOptionPane.showConfirmDialog(null, "Operación cancelada");
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 
 }

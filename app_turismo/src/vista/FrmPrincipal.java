@@ -12,6 +12,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Font;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class FrmPrincipal extends JFrame {
 
@@ -102,7 +103,8 @@ public class FrmPrincipal extends JFrame {
 		Lvehiculo.setBounds(314, 250, 57, 14);
 		contentPane.add(Lvehiculo);
 		
-		JButton btnCompania = new JButton("Compañia");
+		JButton btnCompania = new JButton("");
+		btnCompania.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO COMPAÑIA.png"));
 		btnCompania.setBackground(new Color(240, 248, 255));
 		btnCompania.addMouseListener(new MouseAdapter() {
 			@Override
@@ -111,10 +113,11 @@ public class FrmPrincipal extends JFrame {
 				view.show();
 			}
 		});
-		btnCompania.setBounds(26, 107, 89, 23);
+		btnCompania.setBounds(41, 85, 55, 57);
 		contentPane.add(btnCompania);
 		
-		JButton btnAgencia = new JButton("Agencia");
+		JButton btnAgencia = new JButton("");
+		btnAgencia.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO AGENCIA.png"));
 		btnAgencia.setBackground(new Color(240, 248, 255));
 		btnAgencia.addMouseListener(new MouseAdapter() {
 			@Override
@@ -123,7 +126,7 @@ public class FrmPrincipal extends JFrame {
 				view.show();
 			}
 		});
-		btnAgencia.setBounds(149, 107, 89, 23);
+		btnAgencia.setBounds(161, 85, 55, 57);
 		contentPane.add(btnAgencia);
 		
 		JButton btnPromotor = new JButton("Promotor");

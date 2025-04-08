@@ -33,6 +33,7 @@ public class FrmMedios extends JFrame {
 
 	Medios cr = new Medios();
 	private JButton btnConsultar;
+	private JButton btnActualizar;
 	/**
 	 * Launch the application.
 	 */
@@ -136,7 +137,7 @@ public class FrmMedios extends JFrame {
 		
 		btnBorrar = new JButton("");
 		btnBorrar.setBackground(new Color(240, 248, 255));
-		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
+		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO BORRAR.png"));
 		btnBorrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -146,7 +147,9 @@ public class FrmMedios extends JFrame {
 		btnBorrar.setBounds(347, 248, 55, 57);
 		contentPane.add(btnBorrar);
 		
-		btnConsultar = new JButton("Consultar");
+		btnConsultar = new JButton("");
+		btnConsultar.setBackground(new Color(240, 248, 255));
+		btnConsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO CONSULTAR.png"));
 		btnConsultar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -154,8 +157,21 @@ public class FrmMedios extends JFrame {
 			}
 		});
 		btnConsultar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		btnConsultar.setBounds(302, 104, 89, 23);
+		btnConsultar.setBounds(347, 104, 55, 57);
 		contentPane.add(btnConsultar);
+		
+		btnActualizar = new JButton("");
+		btnActualizar.setBackground(new Color(240, 248, 255));
+		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO ACTUALIZAR.png"));
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.update(Integer.parseInt(txtIdMedio.getText()), txtNombre.getText(), txtObservaciones.getText(), Integer.parseInt(txtIdTipoMedio.getText()));
+			}
+		});
+		btnActualizar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
+		btnActualizar.setBounds(347, 175, 55, 57);
+		contentPane.add(btnActualizar);
 	}
 
 }

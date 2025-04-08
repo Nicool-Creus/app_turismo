@@ -129,8 +129,8 @@ public class FrmVehiculo extends JFrame {
 		btnRegistrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				cr.create(txtMatricula.getText(), txtMarca.getText(), txtPuestos.getText(), txtModelo.getText(), txtNumeroMotor.getText(), 
-						txtCategoria.getText(), Integer.parseInt(txtIdTipo.getText()));
+				cr.create(txtMatricula.getText(), txtMarca.getText(), Integer.parseInt(txtPuestos.getText()), txtModelo.getText(), 
+						Integer.parseInt(txtNumeroMotor.getText()), txtCategoria.getText(), Integer.parseInt(txtIdTipo.getText()));
 			}
 		});
 		btnRegistrar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
@@ -167,7 +167,7 @@ public class FrmVehiculo extends JFrame {
 		
 		JButton btnBorrar = new JButton("");
 		btnBorrar.setBackground(new Color(240, 248, 255));
-		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
+		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO BORRAR.png"));
 		btnBorrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -177,7 +177,9 @@ public class FrmVehiculo extends JFrame {
 		btnBorrar.setBounds(376, 412, 55, 57);
 		contentPane.add(btnBorrar);
 		
-		JButton btnConsultar = new JButton("Consultar");
+		JButton btnConsultar = new JButton("");
+		btnConsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO CONSULTAR.png"));
+		btnConsultar.setBackground(new Color(240, 248, 255));
 		btnConsultar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -185,7 +187,21 @@ public class FrmVehiculo extends JFrame {
 			}
 		});
 		btnConsultar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		btnConsultar.setBounds(310, 180, 89, 23);
+		btnConsultar.setBounds(376, 276, 55, 57);
 		contentPane.add(btnConsultar);
+		
+		JButton btnActualizar = new JButton("");
+		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO ACTUALIZAR.png"));
+		btnActualizar.setBackground(new Color(240, 248, 255));
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.update(txtMatricula.getText(), txtMarca.getText(), Integer.parseInt(txtPuestos.getText()), txtModelo.getText(), 
+						Integer.parseInt(txtNumeroMotor.getText()), txtCategoria.getText(), Integer.parseInt(txtIdTipo.getText()));
+			}
+		});
+		btnActualizar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
+		btnActualizar.setBounds(376, 344, 55, 57);
+		contentPane.add(btnActualizar);
 	}
 }

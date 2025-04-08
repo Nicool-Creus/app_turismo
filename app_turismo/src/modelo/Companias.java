@@ -170,5 +170,36 @@ public class Companias {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public void update(int idCompania, String razonSocial, String direccion, String correo, String telefono, String fechaCreacion, String web) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "UPDATE tblcompania SET razonSocial = ?, direccion = ?, correo = ?, telefono = ?, fechaCreacion = ?, web = ? WHERE idCompania = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			
+			pst.setString(1, razonSocial);
+			pst.setString(2, direccion);
+			pst.setString(3, correo);
+			pst.setString(4, telefono);
+			pst.setString(5, fechaCreacion);
+			pst.setString(6, web);
+			pst.setInt(7, idCompania);
+			
+			int rs = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro " + idCompania + "?");
+			
+			if (rs == JOptionPane.OK_OPTION){
+			pst.executeUpdate();
+			JOptionPane.showConfirmDialog(null, "Registro actualizado con exito");
+			} else {
+				JOptionPane.showConfirmDialog(null, "Operación cancelada");
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 
 }

@@ -218,7 +218,7 @@ public class FrmClientes extends JFrame {
 		
 		JButton btnBorrar = new JButton("");
 		btnBorrar.setBackground(new Color(240, 248, 255));
-		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
+		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO BORRAR.png"));
 		btnBorrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -238,7 +238,9 @@ public class FrmClientes extends JFrame {
 		contentPane.add(txtId);
 		txtId.setColumns(10);
 		
-		JButton btnConsultar = new JButton("Consultar");
+		JButton btnConsultar = new JButton("");
+		btnConsultar.setBackground(new Color(240, 248, 255));
+		btnConsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO CONSULTAR.png"));
 		btnConsultar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -247,8 +249,23 @@ public class FrmClientes extends JFrame {
 			}
 		});
 		btnConsultar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		btnConsultar.setBounds(333, 365, 89, 23);
+		btnConsultar.setBounds(432, 357, 55, 57);
 		contentPane.add(btnConsultar);
+		
+		JButton btnActualizar = new JButton("");
+		btnActualizar.setBackground(new Color(240, 248, 255));
+		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO ACTUALIZAR.png"));
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.update(Integer.parseInt(txtId.getText()), Integer.parseInt(txtTipoDocumento.getText()), Integer.parseInt(txtDocumento.getText()), 
+						txtNombre.getText(), txtApellido.getText(), txtEps.getText(), txtAlergias.getText(), txtFechaNacimiento.getText(),txtCorreo.getText(),
+						txtEstadoCivil.getText(), txtTelefono.getText(), txtDireccion.getText());
+			}
+		});
+		btnActualizar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
+		btnActualizar.setBounds(432, 433, 55, 57);
+		contentPane.add(btnActualizar);
 	}
 
 }

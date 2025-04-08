@@ -94,7 +94,7 @@ public class Vehiculo {
 		this.idTipo = idTipo;
 	}
 
-	public void create(String matricula, String marca, String puestos, String modelo, String numeroMotor, String categoria, int idTipo) {
+	public void create(String matricula, String marca, int puestos, String modelo, int numeroMotor, String categoria, int idTipo) {
 		Connection dbConnection = null;
 		PreparedStatement pst = null;
 		
@@ -106,9 +106,9 @@ public class Vehiculo {
 			
 			pst.setString(1, matricula);
 			pst.setString(2, marca);
-			pst.setString(3, puestos);
+			pst.setInt(3, puestos);
 			pst.setString(4, modelo);
-			pst.setString(5, numeroMotor);
+			pst.setInt(5, numeroMotor);
 			pst.setString(6, categoria);
 			pst.setInt(7, idTipo);
 			
@@ -166,6 +166,37 @@ public class Vehiculo {
 				idTipo.setText(rs.getString(7));
 			}
 			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void update(String matricula, String marca, int puestos, String modelo, int numeroMotor, String categoria, int idTipo) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "UPDATE tblvehiculo SET marca = ?, puestos = ?, modelo = ?, numeroMotor = ?, categoria = ?, idTipo = ? WHERE matricula = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			
+			pst.setString(1, marca);
+			pst.setInt(2, puestos);
+			pst.setString(3, modelo);
+			pst.setInt(4, numeroMotor);
+			pst.setString(5, categoria);
+			pst.setInt(6, idTipo);
+			pst.setString(7, matricula);
+			
+			int rs = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro " + matricula + "?");
+			
+			if (rs == JOptionPane.OK_OPTION){
+			pst.executeUpdate();
+			JOptionPane.showConfirmDialog(null, "Registro actualizado con exito");
+			} else {
+				JOptionPane.showConfirmDialog(null, "Operación cancelada");
+			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}

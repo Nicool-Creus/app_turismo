@@ -129,7 +129,8 @@ public class FrmCompanias extends JFrame {
 		btnRegistrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				cr.create(Integer.parseInt(txtIdCompania.getText()), txtRazonSocial.getText(), txtDireccion.getText(), txtCorreo.getText(), txtTelefono.getText(), txtFechaCreacion.getText(), txtWeb.getText());
+				cr.create(Integer.parseInt(txtIdCompania.getText()), txtRazonSocial.getText(), txtDireccion.getText(), txtCorreo.getText(),
+						txtTelefono.getText(), txtFechaCreacion.getText(), txtWeb.getText());
 			}
 		});
 		btnRegistrar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
@@ -166,7 +167,7 @@ public class FrmCompanias extends JFrame {
 		
 		JButton btnBorrar = new JButton("");
 		btnBorrar.setBackground(new Color(240, 248, 255));
-		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
+		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO BORRAR.png"));
 		btnBorrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -176,7 +177,9 @@ public class FrmCompanias extends JFrame {
 		btnBorrar.setBounds(355, 425, 55, 57);
 		contentPane.add(btnBorrar);
 		
-		JButton btnConsultar = new JButton("Consultar");
+		JButton btnConsultar = new JButton("");
+		btnConsultar.setBackground(new Color(240, 248, 255));
+		btnConsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO CONSULTAR.png"));
 		btnConsultar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -184,8 +187,22 @@ public class FrmCompanias extends JFrame {
 			}
 		});
 		btnConsultar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		btnConsultar.setBounds(305, 360, 89, 23);
+		btnConsultar.setBounds(355, 276, 55, 57);
 		contentPane.add(btnConsultar);
+		
+		JButton btnActualizar = new JButton("");
+		btnActualizar.setBackground(new Color(240, 248, 255));
+		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO ACTUALIZAR.png"));
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.update(Integer.parseInt(txtIdCompania.getText()), txtRazonSocial.getText(), txtDireccion.getText(), txtCorreo.getText(),
+						txtTelefono.getText(), txtFechaCreacion.getText(), txtWeb.getText());
+			}
+		});
+		btnActualizar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
+		btnActualizar.setBounds(355, 351, 55, 57);
+		contentPane.add(btnActualizar);
 	}
 
 }

@@ -119,7 +119,7 @@ public class FrmTiposTransporte extends JFrame {
 		
 		JButton btnBorrar = new JButton("");
 		btnBorrar.setBackground(new Color(240, 248, 255));
-		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
+		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO BORRAR.png"));
 		btnBorrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -129,7 +129,9 @@ public class FrmTiposTransporte extends JFrame {
 		btnBorrar.setBounds(350, 174, 55, 57);
 		contentPane.add(btnBorrar);
 		
-		JButton btnConsultar = new JButton("Consultar");
+		JButton btnConsultar = new JButton("");
+		btnConsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO CONSULTAR.png"));
+		btnConsultar.setBackground(new Color(240, 248, 255));
 		btnConsultar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -137,8 +139,21 @@ public class FrmTiposTransporte extends JFrame {
 			}
 		});
 		btnConsultar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		btnConsultar.setBounds(334, 98, 89, 23);
+		btnConsultar.setBounds(350, 38, 55, 57);
 		contentPane.add(btnConsultar);
+		
+		JButton btnActualizar = new JButton("");
+		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO ACTUALIZAR.png"));
+		btnActualizar.setBackground(new Color(240, 248, 255));
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.update(Integer.parseInt(txtIdTipo.getText()), txtNombre.getText(), txtObservaciones.getText());
+			}
+		});
+		btnActualizar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
+		btnActualizar.setBounds(350, 106, 55, 57);
+		contentPane.add(btnActualizar);
 	}
 
 }

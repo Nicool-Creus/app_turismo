@@ -108,7 +108,7 @@ public class FrmPaquetes extends JFrame {
 		
 		JLabel Lprecio = new JLabel("Precio");
 		Lprecio.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		Lprecio.setBounds(311, 162, 46, 17);
+		Lprecio.setBounds(311, 107, 46, 17);
 		contentPane.add(Lprecio);
 		
 		txtIdDestino = new JTextField();
@@ -147,7 +147,7 @@ public class FrmPaquetes extends JFrame {
 		txtObservaciones.setColumns(10);
 		
 		txtPrecio = new JTextField();
-		txtPrecio.setBounds(420, 161, 86, 20);
+		txtPrecio.setBounds(420, 106, 86, 20);
 		contentPane.add(txtPrecio);
 		txtPrecio.setColumns(10);
 		
@@ -193,11 +193,11 @@ public class FrmPaquetes extends JFrame {
 		
 		JLabel Lmatricula = new JLabel("Matrícula");
 		Lmatricula.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		Lmatricula.setBounds(310, 108, 63, 14);
+		Lmatricula.setBounds(310, 161, 63, 14);
 		contentPane.add(Lmatricula);
 		
 		txtMatricula = new JTextField();
-		txtMatricula.setBounds(420, 106, 86, 20);
+		txtMatricula.setBounds(420, 159, 86, 20);
 		contentPane.add(txtMatricula);
 		txtMatricula.setColumns(10);
 		
@@ -252,7 +252,7 @@ public class FrmPaquetes extends JFrame {
 		txtCodigo.setColumns(10);
 		
 		JButton btnBorrar = new JButton("");
-		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\3643729_bin_delete_garbage_rubbish_trash_icon.png"));
+		btnBorrar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO BORRAR.png"));
 		btnBorrar.setBackground(new Color(240, 248, 255));
 		btnBorrar.addMouseListener(new MouseAdapter() {
 			@Override
@@ -263,7 +263,9 @@ public class FrmPaquetes extends JFrame {
 		btnBorrar.setBounds(420, 538, 55, 57);
 		contentPane.add(btnBorrar);
 		
-		JButton btnConsultar = new JButton("Consultar");
+		JButton btnConsultar = new JButton("");
+		btnConsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO CONSULTAR.png"));
+		btnConsultar.setBackground(new Color(240, 248, 255));
 		btnConsultar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -272,7 +274,23 @@ public class FrmPaquetes extends JFrame {
 			}
 		});
 		btnConsultar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		btnConsultar.setBounds(326, 458, 89, 23);
+		btnConsultar.setBounds(420, 402, 55, 57);
 		contentPane.add(btnConsultar);
+		
+		JButton btnActualizar = new JButton("");
+		btnActualizar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\Downloads\\LOGO ACTUALIZAR.png"));
+		btnActualizar.setBackground(new Color(240, 248, 255));
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cr.update(Integer.parseInt(txtCodigo.getText()), Integer.parseInt(txtIdDestino.getText()), Integer.parseInt(txtIdOrigen.getText()), 
+						txtFechaVenta.getText(), txtHoraVenta.getText(), txtHoraSalida.getText(), txtFechaEjecucion.getText(), txtObservaciones.getText(), 
+						txtMatricula.getText(), txtPrecio.getText(), Integer.parseInt(txtIdCliente.getText()), Integer.parseInt(txtIdAgencia.getText()), 
+						Integer.parseInt(txtIdMedio.getText()), Integer.parseInt(txtIdPromotor.getText()));
+			}
+		});
+		btnActualizar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
+		btnActualizar.setBounds(420, 470, 55, 57);
+		contentPane.add(btnActualizar);
 	}
 }

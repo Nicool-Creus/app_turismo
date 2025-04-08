@@ -128,4 +128,31 @@ public class TiposMedios {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public void update(int idTiposMedios, String nombre, String observaciones) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "UPDATE tbltiposmedios SET nombre = ?, observaciones = ? WHERE idTiposMedios = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			
+			pst.setString(1, nombre);
+			pst.setString(2, observaciones);
+			pst.setInt(3, idTiposMedios);
+			
+			int rs = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro " + idTiposMedios + "?");
+			
+			if (rs == JOptionPane.OK_OPTION){
+			pst.executeUpdate();
+			JOptionPane.showConfirmDialog(null, "Registro actualizado con exito");
+			} else {
+				JOptionPane.showConfirmDialog(null, "Operación cancelada");
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 }

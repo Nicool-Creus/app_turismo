@@ -121,5 +121,32 @@ public class TiposTransporte {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public void update(int idTipo, String nombre, String observaciones) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "UPDATE tbltipostransporte SET nombre = ?, observaciones = ? WHERE idTipo = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			
+			pst.setString(1, nombre);
+			pst.setString(2, observaciones);
+			pst.setInt(3, idTipo);
+			
+			int rs = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro " + idTipo + "?");
+			
+			if (rs == JOptionPane.OK_OPTION){
+			pst.executeUpdate();
+			JOptionPane.showConfirmDialog(null, "Registro actualizado con exito");
+			} else {
+				JOptionPane.showConfirmDialog(null, "Operación cancelada");
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 
 }

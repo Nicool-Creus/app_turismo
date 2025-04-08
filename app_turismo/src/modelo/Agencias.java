@@ -170,5 +170,36 @@ public class Agencias {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public void update(int idAgencia, String nombre, String direccion, String correo, String telefono, String web, int idCompania) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "UPDATE tblagencias SET nombre = ?, direccion = ?, correo = ?, telefono = ?, web = ?, idCompania = ? WHERE idAgencia = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			
+			pst.setString(1, nombre);
+			pst.setString(2, direccion);
+			pst.setString(3, correo);
+			pst.setString(4, telefono);
+			pst.setString(5, web);
+			pst.setInt(6, idCompania);
+			pst.setInt(7, idAgencia);
+			
+			int rs = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro " + idAgencia + "?");
+			
+			if (rs == JOptionPane.OK_OPTION){
+			pst.executeUpdate();
+			JOptionPane.showConfirmDialog(null, "Registro actualizado con exito");
+			} else {
+				JOptionPane.showConfirmDialog(null, "Operación cancelada");
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 
 }
