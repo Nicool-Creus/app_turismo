@@ -118,7 +118,7 @@ public class Operadores {
 	//Insertar datos en la tabla operadores
 	public void create(int id, int tipoDocumento, int documento, String nombres, String apellidos, String direccion, String correo, String telefono, String matricula) {
 		Connection dbConnection = null;
-		PreparedStatement pst = null; //Preaparar la trx
+		PreparedStatement pst = null; //Preparar la trx
 		
 		String script = "INSERT INTO tbloperadores (id, tipoDocumento, documento, nombres, apellidos, direccion, correo, telefono, matricula) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
@@ -179,7 +179,7 @@ public class Operadores {
 	public void readOne(int id, JTextField tipoDocumento, JTextField documento, JTextField nombres, JTextField apellidos, JTextField direccion,
 			JTextField correo, JTextField telefono, JTextField matricula) {
 		Connection dbConnection = null;
-		PreparedStatement pst = null; //Preaparar la trx
+		PreparedStatement pst = null; //Preparar la trx
 		
 		String script = "SELECT * FROM tbloperadores WHERE id = ?";
 		
@@ -210,13 +210,13 @@ public class Operadores {
 	//Actualizar los datos de la tabla operadores
 	public void update(int id, int tipoDocumento, int documento, String nombres, String apellidos, String direccion, String correo, String telefono, String matricula) {
 		Connection dbConnection = null;
-		PreparedStatement pst = null;
+		PreparedStatement pst = null; //Preparar la trx
 		
 		String script = "UPDATE tbloperadores SET tipoDocumento = ?, documento = ?, nombres = ?, apellidos = ?, direccion = ?, correo = ?, telefono = ?, matricula = ? WHERE id = ?";
 		
 		try {
-			dbConnection = conector.conectarBD();
-			pst = dbConnection.prepareStatement(script); //Preparar la trx
+			dbConnection = conector.conectarBD(); //Abrir la conexión
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
 			
 			//Parametrizar los campos
 			pst.setInt(1, tipoDocumento);

@@ -170,7 +170,7 @@ public class Paquetes {
 	public void create(int codigo, int idDestino, int idOrigen, String fechaVenta, String horaVenta, String horaSalida, String fechaEjecucion, 
 			String observaciones, String matricula, String precios, int idCliente, int idAgencia, int idMedios, int idPromotor) {
 		Connection dbConnection = null;
-		PreparedStatement pst = null;
+		PreparedStatement pst = null; //Preparar la trx
 		
 		String script = "INSERT INTO tblpaquetes (codigo, idDestino, idOrigen, fechaVenta, horaVenta, horaSalida, fechaEjecucion, observaciones, matricula, precios, idCliente, idAgencia, idMedios, idPromotor) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
