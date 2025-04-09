@@ -12,6 +12,7 @@ import controlador.Conexion;
 
 public class Vehiculo {
 	
+	//Se conecta a la base de datos mediante el método que está dentro de la clase Conexion
 	Conexion conector = new Conexion();
 
 	public String matricula;
@@ -94,16 +95,18 @@ public class Vehiculo {
 		this.idTipo = idTipo;
 	}
 
+	//Insertar los datos en la tabla vehiculo
 	public void create(String matricula, String marca, int puestos, String modelo, int numeroMotor, String categoria, int idTipo) {
 		Connection dbConnection = null;
-		PreparedStatement pst = null;
+		PreparedStatement pst = null; //Preparar la trx
 		
 		String script = "INSERT INTO tblvehiculo (matricula, marca, puestos, modelo, numeroMotor, categoria, idTipo) values (?, ?, ?, ?, ?, ?, ?)";
 		
 		try {
-			dbConnection = conector.conectarBD();
-			pst = dbConnection.prepareStatement(script);
+			dbConnection = conector.conectarBD(); //Abrir la conexión
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
 			
+			//Parametrizar los campos
 			pst.setString(1, matricula);
 			pst.setString(2, marca);
 			pst.setInt(3, puestos);
@@ -112,6 +115,7 @@ public class Vehiculo {
 			pst.setString(6, categoria);
 			pst.setInt(7, idTipo);
 			
+			//Ejecutar la trx
 			pst.executeUpdate();
 			JOptionPane.showConfirmDialog(null, "Registro con exito");
 		
@@ -120,21 +124,26 @@ public class Vehiculo {
 		}
 	}
 	
+	//Eliminar datos de la tabla vehiculo
 	public void delete(String matricula) {
 		Connection dbConnection = null;
-		PreparedStatement pst = null;
+		PreparedStatement pst = null; //Preparar la trx
 		
 		String script = "DELETE FROM tblvehiculo WHERE matricula = ?";
 		
 		try {
-			dbConnection = conector.conectarBD();
-			pst = dbConnection.prepareStatement(script);
+			dbConnection = conector.conectarBD(); //Abrir la conexión
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
 	
+			//Parametrizar el campo
 			pst.setString(1, matricula);
 			
+			//Confirmar la operación
 			int resp = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro No. "+ matricula + "?");
 			
 			if (resp == JOptionPane.OK_OPTION){
+				
+				//Ejecutar la trx
 				pst.executeUpdate();
 				JOptionPane.showConfirmDialog(null, "Registro No. "+matricula+" eliminado");
 			}
@@ -144,18 +153,20 @@ public class Vehiculo {
 		}
 	}
 	
+	//Consultar todos los registros de la tabla vehiculo
 	public void readOne(String matricula, JTextField marca, JTextField puestos, JTextField modelo, JTextField numeroMotor, JTextField categoria, JTextField idTipo) {
 		Connection dbConnection = null;
-		PreparedStatement pst = null;
+		PreparedStatement pst = null; //Preparar la trx
 		
 		String script = "SELECT * FROM tblvehiculo WHERE matricula = ?";
 		
 		try {
-			dbConnection = conector.conectarBD();
-			pst = dbConnection.prepareStatement(script);
+			dbConnection = conector.conectarBD(); //Abrir la conexión
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
 			
+			//Parametrizar el campo
 			pst.setString(1, matricula);
-			ResultSet rs = pst.executeQuery();
+			ResultSet rs = pst.executeQuery(); //Almacenamiento temporal
 			
 			while (rs.next()) {
 				marca.setText(rs.getString(2));
@@ -171,16 +182,18 @@ public class Vehiculo {
 		}
 	}
 	
+	//Actualizar los datos de la tabla vehiculo
 	public void update(String matricula, String marca, int puestos, String modelo, int numeroMotor, String categoria, int idTipo) {
 		Connection dbConnection = null;
-		PreparedStatement pst = null;
+		PreparedStatement pst = null; //Preparar la trx
 		
 		String script = "UPDATE tblvehiculo SET marca = ?, puestos = ?, modelo = ?, numeroMotor = ?, categoria = ?, idTipo = ? WHERE matricula = ?";
 		
 		try {
-			dbConnection = conector.conectarBD();
-			pst = dbConnection.prepareStatement(script);
+			dbConnection = conector.conectarBD(); //Abrir la conexión
+			pst = dbConnection.prepareStatement(script); //Abrir el buffer
 			
+			//Parametrizar los campos
 			pst.setString(1, marca);
 			pst.setInt(2, puestos);
 			pst.setString(3, modelo);
@@ -189,9 +202,12 @@ public class Vehiculo {
 			pst.setInt(6, idTipo);
 			pst.setString(7, matricula);
 			
+			//Confirmar la operación
 			int rs = JOptionPane.showConfirmDialog(null, "¿Desea actualizar el registro " + matricula + "?");
 			
 			if (rs == JOptionPane.OK_OPTION){
+				
+			//Ejecutar la trx
 			pst.executeUpdate();
 			JOptionPane.showConfirmDialog(null, "Registro actualizado con exito");
 			} else {
