@@ -252,9 +252,9 @@ public class Promotores {
 				
 			//Ejecutar la trx
 			pst.executeUpdate();
-			JOptionPane.showConfirmDialog(null, "Registro actualizado con exito");
+			JOptionPane.showMessageDialog(null, "Registro actualizado con exito");
 			} else {
-				JOptionPane.showConfirmDialog(null, "Operación cancelada");
+				JOptionPane.showMessageDialog(null, "Operación cancelada");
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
@@ -279,7 +279,7 @@ public class Promotores {
 			
 			if (rs.next()) {
 				principal.show();
-				JOptionPane.showConfirmDialog(null, "Acceso permitido");
+				JOptionPane.showMessageDialog(null, "Acceso permitido");
 			} else {
 				JOptionPane.showMessageDialog(null, "El usuario no se encuentra registrado en la base de datos");
 			}

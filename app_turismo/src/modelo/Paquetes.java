@@ -234,7 +234,7 @@ public class Paquetes {
 	
 	//Consultar todos los registros de la tabla paquetes
 	public void readOne(int codigo, JTextField idDestino, JTextField idOrigen, JTextField fechaVenta, JTextField horaVenta, JTextField horaSalida, 
-			JTextField fechaEjecucion, JTextField observaciones, JTextField matricula, JTextField precios, JTextField idCliente, JTextField idAgencia, 
+			JTextField fechaEjecucion, JTextField observaciones, JTextField precios, JTextField matricula, JTextField idCliente, JTextField idAgencia, 
 			JTextField idMedios, JTextField idPromotor) {
 		Connection dbConnection = null;
 		PreparedStatement pst = null; //Preparar la trx
@@ -257,8 +257,8 @@ public class Paquetes {
 				horaSalida.setText(rs.getString(6));
 				fechaEjecucion.setText(rs.getString(7));
 				observaciones.setText(rs.getString(8));
-				matricula.setText(rs.getString(9));
-				precios.setText(rs.getString(10));
+				precios.setText(rs.getString(9));
+				matricula.setText(rs.getString(10));
 				idCliente.setText(rs.getString(11));
 				idAgencia.setText(rs.getString(12));
 				idMedios.setText(rs.getString(13));

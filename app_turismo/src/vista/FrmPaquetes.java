@@ -193,7 +193,7 @@ public class FrmPaquetes extends JFrame {
 		
 		JLabel Lmatricula = new JLabel("Matrícula");
 		Lmatricula.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
-		Lmatricula.setBounds(310, 161, 63, 14);
+		Lmatricula.setBounds(311, 163, 63, 14);
 		contentPane.add(Lmatricula);
 		
 		txtMatricula = new JTextField();
@@ -270,7 +270,7 @@ public class FrmPaquetes extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				cr.readOne(Integer.parseInt(txtCodigo.getText()), txtIdDestino, txtIdOrigen, txtFechaVenta, txtHoraVenta, txtHoraSalida, txtFechaEjecucion, 
-						txtObservaciones, txtMatricula, txtPrecio, txtIdCliente, txtIdAgencia, txtIdMedio, txtIdPromotor);
+						txtObservaciones, txtPrecio, txtMatricula, txtIdCliente, txtIdAgencia, txtIdMedio, txtIdPromotor);
 			}
 		});
 		btnConsultar.setFont(new Font("Microsoft JhengHei", Font.PLAIN, 12));
